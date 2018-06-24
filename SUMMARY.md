@@ -8,4 +8,5 @@
   * [Get Log](ma_scripts/get-log.md)
   * [Service backup -local](ma_scripts/service-backup.md)
   * [Service backup -remote](ma_scripts/service-backup-remote.md)
+  * [Game Service Version](ma_scripts/game-service-version.md)
 
