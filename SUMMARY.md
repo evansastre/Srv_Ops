@@ -6,5 +6,6 @@
   * [Apply Server Patch For QA](ma_scripts/apply-server-patch-for-qa.md)
   * [Get counter](ma_scripts/get-counter.md)
   * [Get Log](ma_scripts/get-log.md)
-  * [Service backup](ma_scripts/service-backup.md)
+  * [Service backup -local](ma_scripts/service-backup.md)
+  * [Service backup -remote](ma_scripts/service-backup-remote.md)
 
