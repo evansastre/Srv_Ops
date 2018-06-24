@@ -9,4 +9,5 @@
   * [Service backup -local](ma_scripts/service-backup.md)
   * [Service backup -remote](ma_scripts/service-backup-remote.md)
   * [Game Service Version](ma_scripts/game-service-version.md)
+  * [Stop/Start services on Live automation](ma_scripts/stop-start-services-on-live-automation.md)
 
