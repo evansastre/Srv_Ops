@@ -23,6 +23,7 @@
     * [3.Check\_Windows\_Update](operation/setup-initialization-windows-servers/3.check_windows_update.md)
     * [4.Windows\_firewall\_initial](operation/setup-initialization-windows-servers/4.windows_firewall_initial.md)
     * [5.Normal Setting](operation/setup-initialization-windows-servers/5.normal-setting.md)
+    * [6.NTP](operation/setup-initialization-windows-servers/6.ntp.md)
 * [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](issue/use-github-pages-build-personal-blog.md)
