@@ -6,21 +6,23 @@ Use selenium to operate service management website.
 
 ### Prepare: {#Stop/StartservicesonLiveautomation-Prepare:}
 
-#### install python support units on saltmaster server {#Stop/StartservicesonLiveautomation-installpythonsupportunitsonsaltmasterserver}
+#### Install python support units on controller server {#Stop/StartservicesonLiveautomation-installpythonsupportunitsonsaltmasterserver}
 
-\# install Python 2.7
+\# install Python 2.7 and selenium
 
-1. sudo yum install centos-release-scl \# install SCL 
-2. sudo yum install python27
-3. scl enable python27 bash
-4. pip install --upgrade pip
-5. yum install gcc
-6. pip install psutil
-7. pip install -U selenium  
+```bash
+sudo yum install centos-release-scl # install SCL 
+sudo yum install python27
+scl enable python27 bash
+pip install --upgrade pip
+yum install gcc
+pip install psutil
+pip install -U selenium
+```
 
-Set firewall rule on AdminWeb and PA to enable communication between saltmaster and AdminWeb.
+Set firewall rule on selenium server and PA to enable communication between controller server and selenium server.
 
-#### install selenium and java support units on webadmin server \(QA:app1  Live:webadmin \) {#Stop/StartservicesonLiveautomation-installseleniumandjavasupportunitsonwebadminserver(QA:app1Live:webadmin)}
+#### Install selenium and java support units on webadmin server \(QA:app1  Live:webadmin \) {#Stop/StartservicesonLiveautomation-installseleniumandjavasupportunitsonwebadminserver(QA:app1Live:webadmin)}
 
 selenium-server:install JRE
 
@@ -39,7 +41,7 @@ pause >nul
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### documents to learn python and selenium {#Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium}
+#### ocuments to learn python and selenium {#Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium}
 
 selenium:
 
@@ -59,7 +61,7 @@ python:
 
 upload script to saltmaster
 
-#### change in different area {#Stop/StartservicesonLiveautomation-changeindifferentarea}
+#### hange in different area {#Stop/StartservicesonLiveautomation-changeindifferentarea}
 
 1.username password for server \[not in python script\]  
 2.monitorServer and seleniumServer   
@@ -67,7 +69,7 @@ upload script to saltmaster
 4.all hostname, seq and list define  
 5.in main function, change all excute Seq
 
-#### step to update stop&start python script {#Stop/StartservicesonLiveautomation-steptoupdatestop&startpythonscript}
+#### tep to update stop&start python script {#Stop/StartservicesonLiveautomation-steptoupdatestop&startpythonscript}
 
 ### 1.
 
@@ -105,7 +107,7 @@ rm -f stop_Service_Stage.py
 rm -f start_Service_Stage.py
 ```
 
-###  6.excute
+###  6.xcute
 
 adminweb:
 
@@ -129,7 +131,7 @@ python stop_Service_Stage.pyc s8nZzs_c2OjXwuHh1w== 28bWxpG0p-PUzNzas9XKk9TN283G 
 python start_Service_Stage.pyc s8nZzs_c2OjXwuHh1w== 28bWxpG0p-PUzNzas9XKk9TN283G [name]
 ```
 
-can use force mode by:
+an use force mode by:
 
 ```bash
 scl enable python27 bash
