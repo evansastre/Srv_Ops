@@ -18,7 +18,8 @@ set sendmail="/usr/sbin/senmail -oem -oi"
 ### restart sendmail
 
 ```bash
-service sendmail restart chkconfig sendmail on
+service sendmail restart 
+chkconfig sendmail on
 ```
 
 ### Test
