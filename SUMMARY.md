@@ -15,6 +15,8 @@
   * [Test](normal-maintenance-procedure/test.md)
 * [Operation](operation/README.md)
   * [Check list for new server setup](operation/check-list-for-new-server-setup.md)
+  * [Reduce core numbers on physical level](operation/reduce-core-numbers-on-physical-level.md)
+  * [get server info](operation/get-server-info.md)
 * [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](issue/use-github-pages-build-personal-blog.md)
@@ -22,5 +24,4 @@
   * [Config mail sender on centos6](common-server-configuration-on-centos/config-mail-sender-on-centos6.md)
   * [registry windows service](common-server-configuration-on-centos/registry-windows-service.md)
   * [Install unrar on CentOS 6](common-server-configuration-on-centos/install-unrar-on-centos-6.md)
-  * [Reduce core numbers on physical level](common-server-configuration-on-centos/reduce-core-numbers-on-physical-level.md)
 
