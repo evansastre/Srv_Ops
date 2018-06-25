@@ -12,6 +12,6 @@
   * [Stop/Start services on Live automation](ma_scripts/stop-start-services-on-live-automation.md)
 * [Normal Maintenance Procedure](normal-maintenance-procedure/README.md)
   * [Test](normal-maintenance-procedure/test.md)
-* [Issue](issue/README.md)
+* [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
 
