@@ -16,4 +16,5 @@
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
 * [Common server configuration on centos](common-server-configuration-on-centos/README.md)
   * [Config mail sender on centos6](common-server-configuration-on-centos/config-mail-sender-on-centos6.md)
+  * [registry windows service](common-server-configuration-on-centos/registry-windows-service.md)
 
