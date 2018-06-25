@@ -20,6 +20,7 @@
   * [Setup Initialization - Windows Servers](operation/setup-initialization-windows-servers/README.md)
     * [1.Install\_saltminion](operation/setup-initialization-windows-servers/1.install_saltminion.md)
     * [2.Check\_key&get\_serialnumber](operation/setup-initialization-windows-servers/2.check_key-and-get_serialnumber.md)
+    * [3.Check\_Windows\_Update](operation/setup-initialization-windows-servers/3.check_windows_update.md)
 * [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](issue/use-github-pages-build-personal-blog.md)
