@@ -1,6 +1,4 @@
 # Use github pages build personal blog
 
-{% page-ref page="use-github-pages-build-personal-blog.md" %}
-
-
+[https://www.jianshu.com/p/e68fba58f75c](https://www.jianshu.com/p/e68fba58f75c)
 
