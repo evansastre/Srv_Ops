@@ -22,4 +22,5 @@
   * [Config mail sender on centos6](common-server-configuration-on-centos/config-mail-sender-on-centos6.md)
   * [registry windows service](common-server-configuration-on-centos/registry-windows-service.md)
   * [Install unrar on CentOS 6](common-server-configuration-on-centos/install-unrar-on-centos-6.md)
+  * [Reduce core numbers on physical level](common-server-configuration-on-centos/reduce-core-numbers-on-physical-level.md)
 
