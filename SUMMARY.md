@@ -21,4 +21,5 @@
 * [Common server configuration on centos](common-server-configuration-on-centos/README.md)
   * [Config mail sender on centos6](common-server-configuration-on-centos/config-mail-sender-on-centos6.md)
   * [registry windows service](common-server-configuration-on-centos/registry-windows-service.md)
+  * [Install unrar on CentOS 6](common-server-configuration-on-centos/install-unrar-on-centos-6.md)
 
