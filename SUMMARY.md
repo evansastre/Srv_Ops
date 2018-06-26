@@ -30,6 +30,8 @@
       * [security\_policy\_infchange.inf](operation/setup-initialization-windows-servers/7.os_harden/security_policy_infchange.inf.md)
     * [8.Install log collector](operation/setup-initialization-windows-servers/8.install-log-collector.md)
     * [9.Install anti virus - Mcafee](operation/setup-initialization-windows-servers/9.install-anti-virus-mcafee.md)
+  * [VMware](operation/vmware/README.md)
+    * [Revert Guest OS](operation/vmware/revert-guest-os.md)
 * [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](issue/use-github-pages-build-personal-blog.md)
@@ -38,4 +40,5 @@
   * [Install unrar on CentOS 6](common-server-configuration-on-centos/install-unrar-on-centos-6.md)
 * [Common server configuration on Windows](common-server-configuration-on-windows/README.md)
   * [registry windows service](common-server-configuration-on-windows/registry-windows-service.md)
+  * [Windows Firewall Command](common-server-configuration-on-windows/windows-firewall-command.md)
 
