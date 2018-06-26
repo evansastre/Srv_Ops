@@ -230,13 +230,13 @@ folder=QA_script/GameServiceVersion/
 Env=TH
  
 salt $Env'-Func' cmd.script salt://$folder'GameServiceVersion_Func.bat'
-salt $Env'-Func' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_before.txt'
+salt $Env'-Func' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_before.txt'
  
 salt $Env'-Game01' cmd.script salt://$folder'GameServiceVersion_Game01.bat'
-salt $Env'-Game01' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_before_Game01.txt'
+salt $Env'-Game01' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_before_Game01.txt'
  
 salt $Env'-Game02' cmd.script salt://$folder'GameServiceVersion_Game02.bat'
-salt $Env'-Game02' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_before_Game02.txt'
+salt $Env'-Game02' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_before_Game02.txt'
  
  
 sdiff -E -s GameServiceVersion_before_Game01.txt GameServiceVersion_before_Game02.txt
@@ -264,13 +264,13 @@ folder=QA_script/GameServiceVersion/
 Env=TH
  
 salt $Env'-Func' cmd.script salt://$folder'GameServiceVersion_Func.bat'
-salt $Env'-Func' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_after.txt'
+salt $Env'-Func' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_after.txt'
  
 salt $Env'-Game01' cmd.script salt://$folder'GameServiceVersion_Game01.bat'
-salt $Env'-Game01' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_after_Game01.txt'
+salt $Env'-Game01' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_after_Game01.txt'
  
 salt $Env'-Game02' cmd.script salt://$folder'GameServiceVersion_Game02.bat'
-salt $Env'-Game02' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "BNS" > $folder_abs'GameServiceVersion_after_Game02.txt'
+salt $Env'-Game02' cmd.run 'type D:\GameServiceVersion.txt'  | grep -v "GameName" > $folder_abs'GameServiceVersion_after_Game02.txt'
  
  
 sdiff -E -s GameServiceVersion_after_Game01.txt GameServiceVersion_after_Game02.txt
