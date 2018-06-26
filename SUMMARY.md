@@ -28,6 +28,8 @@
       * [security\_policy\_command\_check](operation/setup-initialization-windows-servers/7.os_harden/security_policy_command_check.md)
       * [security\_policy\_command.bat](operation/setup-initialization-windows-servers/7.os_harden/security_policy_command.bat.md)
       * [security\_policy\_infchange.inf](operation/setup-initialization-windows-servers/7.os_harden/security_policy_infchange.inf.md)
+    * [8.Install log collector](operation/setup-initialization-windows-servers/8.install-log-collector.md)
+    * [9.Install anti virus - Mcafee](operation/setup-initialization-windows-servers/9.install-anti-virus-mcafee.md)
 * [Issue & solution](issue/README.md)
   * [Centos6.\* upgrade glibc](issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](issue/use-github-pages-build-personal-blog.md)
