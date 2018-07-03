@@ -55,10 +55,6 @@ python:
 
 ### Test on QA {#Stop/StartservicesonLiveautomation-TestonQA}
 
-[stop\_Service\_VN\_Stage.py](http://gtoconfluence.garenanow.com:8090/download/attachments/3543728/stop_Service_VN_Stage.py?version=1&modificationDate=1507805184000&api=v2)
-
-[start\_Service\_VN\_Stage.py](http://gtoconfluence.garenanow.com:8090/download/attachments/3543728/start_Service_VN_Stage.py?version=1&modificationDate=1507805184000&api=v2)
-
 upload script to saltmaster
 
 #### hange in different area {#Stop/StartservicesonLiveautomation-changeindifferentarea}
