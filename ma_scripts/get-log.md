@@ -53,8 +53,7 @@ for MyServer in ${MyServers_arr[@]}; do
         echo $MyHour $MyMin $MySec
         echo $MyDateTime
         echo $MyDate
-        MyDateTime_NoSec=${MyDateTime%:*}   
-    
+        
         if   [ "$MyHour" == "00" ] && [ "$MyMin" == "00" ] && [ "$MySec" == "00" ] ; then
             MyDate=$(date -d ""$MyDate" -1 day"  +%Y%m%d )
             MyHour=$(date -d ""$MyHour" -1 hour"  +%H )
@@ -64,8 +63,18 @@ for MyServer in ${MyServers_arr[@]}; do
             MyHour=$(date -d ""$MyHour" -1 hour"  +%H )
             echo "Query Hour: "$MyHour
         fi
-     
-        logName=$(salt $MyServer cmd.run 'pushd E:\log\ && findstr /s /i /m /c:"'$MyDateTime_NoSec'" *'$MyDate'-'$MyHour'*.log | find /v "client" | find /v "guard"')
+        #special servers, like AdminWeb
+        if [ $MyServer == "BNSVN-AdminWeb" ]; then
+            MyDateTime_NoMin=$(date -d $(echo $MyDateTime | cut -d "-" -f 1) +%Y-%m-%d)"T"$MyHour":"${MyMin%?}
+            echo $MyDateTime_NoMin
+            Query_Log_Name=$MyDate
+        else
+            MyDateTime_NoSec=${MyDateTime%:*}
+            MyDateTime_NoMin=${MyDateTime_NoSec%?}
+            Query_Log_Name=$MyDate'-'$MyHour
+        fi
+        
+        logName=$(salt $MyServer cmd.run 'pushd E:\log\ && findstr /s /i /m /c:"'$MyDateTime_NoSec'" *'$Query_Log_Name'*.log | find /v "client" | find /v "guard"')
         Res=$logName
         check_minion_return
  
@@ -74,7 +83,7 @@ for MyServer in ${MyServers_arr[@]}; do
         Res=$(salt $MyServer cmd.run 'xcopy '$logPath' E:\'$UploadName'\ /y ')
         check_minion_return
  
-        echo 'pushd E:\log\ && findstr /s /i /m /c:"'$MyDateTime_NoSec'" *'$MyDate'-'$MyHour'*.log | find /v "client" | find /v "guard"'
+        echo 'pushd E:\log\ && findstr /s /i /m /c:"'$MyDateTime_NoSec'" *'$Query_Log_Name'*.log | find /v "client" | find /v "guard"'
         echo "E:\\log\\"$(echo $logName |  cut -d ":" -f 2 |cut -d " " -f 2)
         echo 'xcopy '$logPath' E:\'$UploadName'\ /y '
  
