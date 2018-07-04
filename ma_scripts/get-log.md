@@ -64,7 +64,7 @@ for MyServer in ${MyServers_arr[@]}; do
             echo "Query Hour: "$MyHour
         fi
         #special servers, like AdminWeb
-        if [ $MyServer == "BNSVN-AdminWeb" ]; then
+        if [ $MyServer == "AdminWeb" ]; then
             MyDateTime_NoMin=$(date -d $(echo $MyDateTime | cut -d "-" -f 1) +%Y-%m-%d)"T"$MyHour":"${MyMin%?}
             echo $MyDateTime_NoMin
             Query_Log_Name=$MyDate
