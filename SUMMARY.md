@@ -10,6 +10,7 @@
   * [Service backup -remote](ma_scripts/service-backup-remote.md)
   * [Game Service Version](ma_scripts/game-service-version.md)
   * [Stop/Start services on Live automation](ma_scripts/stop-start-services-on-live-automation.md)
+  * [CleanupLog](ma_scripts/cleanuplog.md)
 * [Security](security.md)
 * [Normal Maintenance Procedure](normal-maintenance-procedure/README.md)
   * [Test](normal-maintenance-procedure/test.md)
