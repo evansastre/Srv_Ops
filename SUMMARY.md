@@ -13,6 +13,7 @@
   * [CleanupLog](ma_scripts/cleanuplog.md)
   * [CheckGameServiceState-Monitoring](ma_scripts/checkgameservicestate-monitoring/README.md)
     * [Create service for selenium](ma_scripts/checkgameservicestate-monitoring/create-service-for-selenium.md)
+    * [Config mail sender on centos](ma_scripts/checkgameservicestate-monitoring/config-mail-sender-on-centos.md)
 * [Security Linux](security-linux.md)
 * [Security Windows](security.md)
 * [Normal Maintenance Procedure](normal-maintenance-procedure/README.md)

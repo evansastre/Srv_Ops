@@ -6,3 +6,13 @@ description: >-
 
 # CheckGameServiceState-Monitoring
 
+[https://evansastre.gitbook.io/srvops/ma\_scripts/checkgameservicestate-monitoring/create-service-for-selenium](https://evansastre.gitbook.io/srvops/ma_scripts/checkgameservicestate-monitoring/create-service-for-selenium)
+
+
+
+1. [Create service for selenium](https://evansastre.gitbook.io/srvops/ma_scripts/checkgameservicestate-monitoring/create-service-for-selenium)
+2. [Config mail sender on centos](http://gtoconfluence.garenanow.com:8090/display/BNS/Config+mail+sender+on+centos)
+3. Script to get state.
+
+
+
