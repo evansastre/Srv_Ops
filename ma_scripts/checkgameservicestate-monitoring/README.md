@@ -142,6 +142,8 @@ def connect_selenium_server():
     except:
         global restart_time
         if restart_time>2:
+            kill_process("chrome.exe")
+            kill_process("conhost.exe")
             print "Selenium server restart fail."
             #email alert
             os.system('echo "Selenium server restart fail. Please check." | mutt -e "my_hdr from:thlive<master@th.com>" -s "selenium check" abc@domain.com')
