@@ -1,22 +1,37 @@
 # security\_policy\_command\_check
 
 ```bash
-::::::::2.1 Remove unnecessary user accounts in administrator group
-::net localgroup administrators' ::show all users in administrators group 
-::net localgroup administrators BILLMENG /delete'"
+####2.1 Remove unnecessary user accounts in administrator group, manual confirm
 
-::::::::2.2 Disable Guest Account
+#show all users in administrators group 
+
+salt -N 'OS-Windows' cmd.run 'net localgroup administrators'
+
+#delete
+salt -N 'OS-Windows' cmd.run 'net localgroup administrators user1 /delete'"'
+
+
+
+#2.2 Disable Guest Account
 #no
-salt -N 'OS-Windows' cmd.run 'net user guest | find "active"' 
-::::::::2.3 Delete unnecessary account management
-::net user' ::show all users , then decide which account should be delete
-::net user [users] /delete'
+salt -N 'OS-Windows' cmd.run 'net user guest | find "active"'
 
-::::::::2.9 Change Admin account name
+
+####2.3 Delete unnecessary account management
+salt -N 'OS-Windows' cmd.run 'net user'
+
+#show all users , then decide which account should be delete
+salt -N 'OS-Windows' cmd.run 'net user [users] /delete'
+
+
+
+####2.9 Change Admin account name
 #yes
 salt -N 'OS-Windows' cmd.run 'net user Starbucks | find "active"'
 
-::::::::2.4 Password Policy Settings
+
+
+####2.4 Password Policy Settings
 salt -N 'OS-Windows' cmd.run 'net user'
 
 #90
@@ -26,7 +41,9 @@ salt -N 'OS-Windows' cmd.run 'net accounts | find "Minimum password age"'
 #8
 salt -N 'OS-Windows' cmd.run 'net accounts | find "Minimum password length"'
 
-::::::::2.5 Account lock up policy settings
+
+
+####2.5 Account lock up policy settings
 #30
 salt -N 'OS-Windows' cmd.run 'net accounts | find "Lockout duration"'
 #5
@@ -35,57 +52,69 @@ salt -N 'OS-Windows' cmd.run 'net accounts | find "Lockout threshold"'
 salt -N 'OS-Windows' cmd.run 'net accounts | find "Lockout observation window"'
 
 
-::::::::2.6 Enforce recent password history settings
+####2.6 Enforce recent password history settings
 #12
 salt -N 'OS-Windows' cmd.run 'net accounts | find "Length of password"'
-::::::::2.7 Password complexity setting
-
-::::::::2.8 Deactivate encryption settings
 
 
+####2.7 Password complexity setting
 
-::::::::2.10 User Account Control Settings
+#see last title 'security group policy check'
+
+
+
+####2.8 Deactivate encryption settings
+
+#see last title 'security group policy check'
+
+
+
+####2.10 User Account Control Settings
 #5 or 0x5
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin '
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v ConsentPromptBehaviorAdmin ' | grep -E ":|REG"
 
-::::::::2.11 Use vulnerable password
-::This one we are using Password Generator, which helps us generate more than 12 length password.
 
-::::::::3.1 user directory access authority setting
+
+####2.11 Use vulnerable password
+#This one we are using Password Generator, which helps us generate more than 12 length password.
+
+
+
+####3.1 user directory access authority setting
 #no "everyone"
 salt -N 'OS-Windows' cmd.run 'icacls C:\Users ' | find "Everyone"'
 
-::::::::3.2 SAM file access authority setting
+
+
+####3.2 SAM file access authority setting
 
 #no group "Users"
 salt -N 'OS-Windows' cmd.run 'icacls "C:\windows/system32/config/SAM"'  |  find "Users"'
-::icacls "C:\windows/system32/config/SAM" /remove [users or groups]
+#icacls "C:\windows/system32/config/SAM" /remove [users or groups]
 
-::::::::3.3 Use system basic public folder
+
+
+####3.3 Use system basic public folder
 #no admin$ \ Drive share
 salt -N 'OS-Windows' cmd.run 'net share'
 
-net share IPC$ /delete
-net share admin$ /delete
-REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters /v AutoShareWks /t REG_DWORD /d 0 /f
-REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters /v AutoShareServer /t REG_DWORD /d 0 /f
-REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v restrictanonymous /t REG_DWORD /d 1 /f
-
-::::::::3.4 User sharing folder setting
-::net share --> get list of sharing folders ,remove unnecessary sharing folders. About D E F, maybe can consider only give access to administrators group 
-::net share sharename=drive::path /GRANT::user,[READ | CHANGE | FULL] /GRANT::user,[READ | CHANGE | FULL]"
 
 
-::::::::4.1 NetBIOS binding
+####3.4 User sharing folder setting
+#net share --> get list of sharing folders ,remove unnecessary sharing folders. About D E F, maybe can consider only give access to administrators group 
+#net share sharename=drive:path /GRANT:user,[READ | CHANGE | FULL] /GRANT:user,[READ | CHANGE | FULL]"
+
+
+####4.1 NetBIOS binding
 #shows long message
 salt -N 'OS-Windows' cmd.run 'wmic nicconfig where TcpipNetbiosOptions=2'
 
 #or try to see 0 or 1, "No Instance(s) Avaliable"
-salt '*' cmd.run 'wmic nicconfig where TcpipNetbiosOptions=0'
-salt '*' cmd.run 'wmic nicconfig where TcpipNetbiosOptions=1'
+salt -N 'OS-Windows' cmd.run 'wmic nicconfig where TcpipNetbiosOptions=0'
+salt -N 'OS-Windows' cmd.run 'wmic nicconfig where TcpipNetbiosOptions=1'
 
 
-::::::::4.2 SMTP replay restriction 
+####4.2 SMTP replay restriction 
 #show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "smtpsvc" '
 
@@ -96,7 +125,7 @@ salt -N 'OS-Windows' cmd.run 'sc query "smtpsvc" | find "STATE"'
 salt -N 'OS-Windows' cmd.run 'sc qc "smtpsvc" | find "START_TYPE"'
 
 
-::::::::4.3 Telnet security setting
+####4.3 Telnet security setting
 #show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "telnet" '
 
@@ -106,7 +135,9 @@ salt -N 'OS-Windows' cmd.run 'sc query "telnet" | find "STATE"'
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "telnet" | find "START_TYPE"'
 
-::::::::4.4 SNMP security setting
+
+
+####4.4 SNMP security setting
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "SNMPTRAP" '
 
@@ -116,16 +147,20 @@ salt -N 'OS-Windows' cmd.run 'sc query "SNMPTRAP" | find "STATE"'
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "SNMPTRAP" | find "START_TYPE"'
 
-::::::::4.5 Terminal service security setting
+
+
+####4.5 Terminal service security setting
 #0x2 2
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel' | grep -E ":|REG"
 
-::::::::4.6 Remote terminal access timeout setting
+
+
+####4.6 Remote terminal access timeout setting
 #0x5265c00 86400000
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxIdleTime'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxIdleTime' | grep -E ":|REG"
 
 
-::::::::4.7 DNS security setting
+####4.7 DNS security setting
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "dns" '
 
@@ -136,7 +171,7 @@ salt -N 'OS-Windows' cmd.run 'sc query "dns" | find "STATE"'
 salt -N 'OS-Windows' cmd.run 'sc qc "dns" | find "START_TYPE"'
 
 
-::::::::4.8 DNS Zone Transfer setting
+####4.8 DNS Zone Transfer setting
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "dns" '
 
@@ -146,7 +181,9 @@ salt -N 'OS-Windows' cmd.run 'sc query "dns" | find "STATE"'
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "dns" | find "START_TYPE"'
 
-::::::::4.9 unnecessary service 
+
+
+####4.9 unnecessary service 
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "Alerter" '
 #or
@@ -180,22 +217,24 @@ salt -N 'OS-Windows' cmd.run 'sc query "simptcp" | find "STATE"'
 salt -N 'OS-Windows' cmd.run 'sc qc "simptcp" | find "START_TYPE"'
 
 
-::::::::5.1 Auto Logon restriction 
+####5.1 Auto Logon restriction 
 #show "unabl to find" 
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword' | grep -E ":|REG"
 # 0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon' | grep -E ":|REG"
 
 
-::::::5.2 Null Session restriction
+###5.2 Null Session restriction
 # 0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v restrictanonymous'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v restrictanonymous' | grep -E ":|REG"
 # 0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v restrictanonymoussam'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v restrictanonymoussam' | grep -E ":|REG"
 # 0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters /v restrictnullsessaccess'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters /v restrictnullsessaccess' | grep -E ":|REG"
 
-::::::::5.3 remote registry access restriction 
+
+
+####5.3 remote registry access restriction 
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "RemoteRegistry" '
 #or
@@ -204,21 +243,25 @@ salt -N 'OS-Windows' cmd.run 'sc query "RemoteRegistry" | find "STATE"'
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "RemoteRegistry" | find "START_TYPE"'
 
-::::::::5.4 DoS attack defense setting
+
+
+####5.4 DoS attack defense setting
 # 0x2
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v SynAttackProtect'
-::Disables dead gateway detection
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v SynAttackProtect' | grep -E ":|REG"
+#Disables dead gateway detection
 # 0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v EnableDeadGWDetect'
-::Determines how often TCP sends keep-alive transmissions. TCP sends keep-alive transmissions to verify that an idle connection is still active.
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v EnableDeadGWDetect' | grep -E ":|REG"
+#Determines how often TCP sends keep-alive transmissions. TCP sends keep-alive transmissions to verify that an idle connection is still active.
 # 0x493e0
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v KeepAliveTime'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v KeepAliveTime' | grep -E ":|REG"
 
-::The NetBIOS name for the system will no longer appear under ‘My Network Places’.
+#The NetBIOS name for the system will no longer appear under ‘My Network Places’.
 #0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v NoNameReleaseOnDemand'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters /v NoNameReleaseOnDemand' | grep -E ":|REG"
 
-:::::::6.1 audit policy setting
+
+
+###:6.1 audit policy setting
 # success and failure
 salt -N 'OS-Windows' cmd.run 'AuditPol /Get /Category:"Account Management" '
 # success and failure
@@ -240,108 +283,160 @@ salt -N 'OS-Windows' cmd.run 'AuditPol /Get /Category:"Object Access" '
 
 
 
-::::::::6.2 Remote log file access authority setting
+####6.2 Remote log file access authority setting
 #no group 'everyone'
 salt -N 'OS-Windows' cmd.run 'icacls C:\Windows\System32\config' | find "Everyone"' 
 
-::::::::6.3 event log setting
-::::wevtutil sl Security /ms::83886080
+####6.3 event log setting
 # 0x5000000 83886080
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Security /v MaxSize '
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Security /v MaxSize ' | grep -E ":|REG"
 
 
-::::::::7.1 the last user name display restriction
-::default setting is enable
+####7.1 the last user name display restriction
+#default setting is enable
 #0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v dontdisplaylastusername'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v dontdisplaylastusername' | grep -E ":|REG"
 
 
-::::::::7.2 Set messagers for users try to logon
+####7.2 Set messagers for users try to logon
 #warn
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v legalnoticecaption'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v legalnoticecaption' | grep -E ":|REG"
 
 #big brother is watching you
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v legalnoticetext'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v legalnoticetext' | grep -E ":|REG"
 
-::::::::7.3 Restriction for Forcing to terminate system in remote system 
-::import secedit by command
 
-::::::::7.4 restriction for Terminating system without logon
-::Default on servers:: Disabled.
+
+####7.3 Restriction for Forcing to terminate system in remote system 
+#see last title 'security group policy check'
+
+
+
+####7.4 restriction for Terminating system without logon
+#Default on servers:Disabled
 #0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ /v shutdownwithoutlogon'
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ /v shutdownwithoutlogon' | grep -E ":|REG"
 
 
-::::::::7.5 system termination restriction 
-::import secedit by command
+####7.5 system termination restriction 
+#see last title 'security group policy check'
 
-::::::::7.6 Set popup message to users before password expired.
+
+
+####7.6 Set popup message to users before password expired.
 #0xe
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v PasswordExpiryWarning'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v PasswordExpiryWarning' | grep -E ":|REG"
 
 
-::::::::7.7 Do not immediately terminate the system if security audit can’t log 
-::Default:: Disabled.
+####7.7 Do not immediately terminate the system if security audit can’t log 
+#Default: Disabled.
 #0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v CrashOnAuditFail'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v CrashOnAuditFail' | grep -E ":|REG"
 
-::::::::7.8 LAN MANAGER certification level
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel'
 
-::::::::7.9 Digital encrypted and signature of security channel
-::Default:: Enable
-#0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v RequireSignOrSeal'
-#0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v SealSecureChannel'
-#0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v SignSecureChannel'
 
-::::::::7.10 Required time before session disconnected
-::Default::This policy is not defined, which means that the system treats it as 15 minutes for servers and undefined for workstations.
+####7.8 LAN MANAGER certification level
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel' | grep -E ":|REG"
+
+
+
+####7.9 Digital encrypted and signature of security channel
+#Default:Enable
+#0x1
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v RequireSignOrSeal' | grep -E ":|REG"
+#0x1
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v SealSecureChannel' | grep -E ":|REG"
+#0x1
+salt -N 'OS-Windows' cmd.run 'REG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters /v SignSecureChannel' | grep -E ":|REG"
+
+
+
+####7.10 Required time before session disconnected
+#Default:This policy is not defined, which means that the system treats it as 15 minutes for servers and undefined for workstations.
 #0xf
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters Print Services" /v autodisconnect'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters Print Services" /v autodisconnect' | grep -E ":|REG"
 
 
-::::::::7.11 Removable media format and bringing out restriction 
+####7.11 Removable media format and bringing out restriction 
 #0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AllocateDASD'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AllocateDASD' | grep -E ":|REG"
 
 
-::::::::7.12 Restrict using blank password in local account at local logon
-::Default:: Enabled. 
+####7.12 Restrict using blank password in local account at local logon
+#Default: Enabled
 #0x1
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v LimitBlankPasswordUse'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v LimitBlankPasswordUse' | grep -E ":|REG"
 
-::::::::7.13 Allow changing NULL SID/name restriction 
-::Default on workstations and member servers:: Disabled.
-::import secedit by command
 
-::::::::7.14 Restricting Everyone authority to NULL user
-::Default:: Disabled.
+
+####7.13 Allow changing NULL SID/name restriction 
+#Default on workstations and member servers: Disabled.
+#see last title 'security group policy check'
+
+
+
+####7.14 Restricting Everyone authority to NULL user
+#Default: Disabled.
 #0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v EveryoneIncludesAnonymous'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa" /v EveryoneIncludesAnonymous' | grep -E ":|REG"
 
 
-::::::::7.15 computer account password restriction 
+####7.15 computer account password restriction 
 #0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters" /v DisablePasswordChange'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters" /v DisablePasswordChange' | grep -E ":|REG"
 
 #0x5a
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters" /v MaximumPasswordAge'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters" /v MaximumPasswordAge' | grep -E ":|REG"
 
 
-::::::::7.16 Restriction for user installing printer driver
+####7.16 Restriction for user installing printer driver
 #0x0
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Providers\LanMan Print Services" /v AddPrinterDrivers'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Providers\LanMan Print Services" /v AddPrinterDrivers' | grep -E ":|REG"
 
 
-::::::::e2 e2.disable USB on servers
+
+####e1.MaxIdleTime & MaxConnectionTime
+
+#0x1b7740   disconnect after 30min no operate [only on CM]
+
+salt -N OS-Windows cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime' | grep -E ":|REG"
+
+
+
+#0x5265c00 1day logoff disconnected user [ logD0* exclude ]
+salt -N OS-Windows cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime ' | grep -E ":|REG"
+
+
+
+####e2.disable USB on servers
 #0x4
-salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBSTOR" /v Start'
+salt -N 'OS-Windows' cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBSTOR" /v Start' | grep -E ":|REG"
 
 
-:::::added1
+
+#### e3.disable all disconnected network interface
+
+salt '*' cmd.run ' netsh interface show interface | find "Disconnected" ' #check all "Disconnected" is "Disabled"
+
+
+
+
+
+#### e4.disable all DB server external interface
+
+salt -N DB cmd.run ' ipconfig /all | findstr "IPv4" '   #check no external IP exsit
+
+
+
+#### e5.MinEncryptionLevel   
+
+#gpedit.msc -> Computer Configuration -> Administrative Templates -> Windows Components -> Remote Desktop Services -> Remote Desktop Session Host -> Security -> Set client connection encryption level -> "Enabled" -> "Client Compatible"
+
+#0x2   MinEncryptionLevel REG_DWORD   [ logD0* exclude ]
+salt -N OS-Windows cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MinEncryptionLevel' | grep -E ":|REG"
+
+
+####:added1
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "WinRM" '
 
@@ -351,7 +446,9 @@ salt -N 'OS-Windows' cmd.run 'sc query "WinRM" | find "STATE"'
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "WinRM" | find "START_TYPE"'
 
-:::::added2
+
+
+####:added2
 show does not exist
 salt -N 'OS-Windows' cmd.run 'sc query "SNMP" '
 
@@ -360,6 +457,10 @@ salt -N 'OS-Windows' cmd.run 'sc query "SNMP" '
 salt -N 'OS-Windows' cmd.run 'sc query "SNMP" | find "STATE"' 
 #show disabled
 salt -N 'OS-Windows' cmd.run 'sc qc "SNMP" | find "START_TYPE"'
+
+
+
+####security group policy check
 
 #export 
 salt -N 'OS-Windows' cmd.run 'pushd C:\ && secedit /export /cfg newexport.inf'
@@ -380,10 +481,6 @@ salt -N 'OS-Windows' cmd.run 'pushd C:\ && del newexport.inf'
 
 
 
-#MaxDisconnectionTime REG_DWORD 0x5265c00 
-salt -N OS-Windows cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime '
 
-#MinEncryptionLevel REG_DWORD 0x2 
-salt -N OS-Windows cmd.run 'REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MinEncryptionLevel'
 ```
 
