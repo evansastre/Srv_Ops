@@ -53,3 +53,7 @@
   * [registry windows service](common-server-configuration-on-windows/registry-windows-service.md)
   * [Windows Firewall Command](common-server-configuration-on-windows/windows-firewall-command.md)
 
+## BlueKing
+
+* [How to start](blueking/how-to-start.md)
+

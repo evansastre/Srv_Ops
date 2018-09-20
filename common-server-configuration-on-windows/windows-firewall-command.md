@@ -5,31 +5,31 @@
 Turn on windows firewall:
 
 | `NetSh Advfirewall set allprofiles state on` |
-| --- |
+| :--- |
 
 
 Turn off windows firewall:
 
 | `NetSh Advfirewall set allprofiles state off` |
-| --- |
+| :--- |
 
 
 Check the status of Windows firewall:
 
 | `Netsh Advfirewall show allprofiles` |
-| --- |
+| :--- |
 
 
 Disable rule:
 
 | `netsh advfirewall firewall set rule name="xxxx"` `new` `enable=no` |
-| --- |
+| :--- |
 
 
 Enable rule:
 
 | `netsh advfirewall firewall set rule name="xxxx"` `new` `enable=yes` |
-| --- |
+| :--- |
 
 
 Block inbound/outbound
