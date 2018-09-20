@@ -1,6 +1,9 @@
 # Table of contents
 
 * [srvops](README.md)
+* [BlueKing](blueking-1/README.md)
+  * [Architecture](blueking-1/architecture.md)
+  * [Notes](blueking-1/notes.md)
 * [MA\_Scripts](ma_scripts/README.md)
   * [Apply Server Patch For LIVE](ma_scripts/apply-server-patch-for-live.md)
   * [Apply Server Patch For QA](ma_scripts/apply-server-patch-for-qa.md)
@@ -11,9 +14,9 @@
   * [Game Service Version](ma_scripts/game-service-version.md)
   * [Stop/Start services on Live automation](ma_scripts/stop-start-services-on-live-automation.md)
   * [CleanupLog](ma_scripts/cleanuplog.md)
-  * [CheckGameServiceState-Monitoring](ma_scripts/checkgameservicestate-monitoring/README.md)
-    * [Create service for selenium](ma_scripts/checkgameservicestate-monitoring/create-service-for-selenium.md)
-    * [Config mail sender on centos](ma_scripts/checkgameservicestate-monitoring/config-mail-sender-on-centos.md)
+* [CheckGameServiceState-Monitoring](checkgameservicestate-monitoring/README.md)
+  * [Create service for selenium](checkgameservicestate-monitoring/create-service-for-selenium.md)
+  * [Config mail sender on centos](checkgameservicestate-monitoring/config-mail-sender-on-centos.md)
 * [Security Linux](security-linux/README.md)
   * [CheckOutBound-Monitoring](security-linux/checkoutbound-monitoring.md)
 * [Security Windows](security/README.md)
@@ -56,5 +59,6 @@
 ## BlueKing
 
 * [How to start](blueking/how-to-start.md)
-* [Architecture](blueking/architecture.md)
+* [Untitled](blueking/untitled.md)
+* [123](blueking/123.md)
 
