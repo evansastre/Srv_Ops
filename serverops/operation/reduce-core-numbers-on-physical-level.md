@@ -8,7 +8,7 @@ For example, for a server with 2\*E5-2640v4, it has 10 cores 20 threads each, to
 * Choose "Boot"
 * Choose "Advanced Options"
 * 
-![](../.gitbook/assets/1.png)
+![](../../.gitbook/assets/1.png)
 
 * Tick "Number of processors", in this case, we have 40 processors originally, so cut by half, choose 20 so that the server will have 20 processors, 10 physical cores. 
 * After the change, a reboot will be required to take effect. Please arrange this change during MA time or at your convenience. 
