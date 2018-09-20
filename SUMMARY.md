@@ -56,4 +56,5 @@
 ## BlueKing
 
 * [How to start](blueking/how-to-start.md)
+* [Architecture](blueking/architecture.md)
 
