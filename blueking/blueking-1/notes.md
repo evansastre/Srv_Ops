@@ -29,10 +29,6 @@ cd /data/bkee/gse/server/bin
 #./gse_task -f /data/bkee/etc/gse/task.conf
 ```
 
-### Guide by tencent
-
-[http://docs.bk.tencent.com/bkce\_install\_guide/maintain.html](http://docs.bk.tencent.com/bkce_install_guide/maintain.html)
-
 ### Deply test on  tencent cloud
 
 ssh root@139.199.180.33 -p 22 XXXX 

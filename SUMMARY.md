@@ -7,6 +7,7 @@
 * [BlueKing Deploy Doc](blueking/blueking-1/README.md)
   * [Architecture](blueking/blueking-1/architecture.md)
   * [Notes](blueking/blueking-1/notes.md)
+  * [Guide link](blueking/blueking-1/guide-link.md)
 
 ## ServerOps
 
