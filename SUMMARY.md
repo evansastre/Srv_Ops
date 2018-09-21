@@ -7,9 +7,9 @@
 * [BlueKing Deploy Doc](blueking/blueking-1/README.md)
   * [Architecture](blueking/blueking-1/architecture.md)
   * [Notes\_huangsl](blueking/blueking-1/notes.md)
+  * [Notes\_kailun](blueking/blueking-1/note2.md)
   * [Weekly Report](blueking/blueking-1/weekly-report/README.md)
     * [19-21 Sep](blueking/blueking-1/weekly-report/19-21-sep.md)
-  * [Notes2](blueking/blueking-1/note2.md)
   * [Guide link](blueking/blueking-1/guide-link.md)
 
 ## ServerOps

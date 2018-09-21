@@ -2,7 +2,7 @@
 description: Issue collection
 ---
 
-# Notes2
+# Notes\_kailun
 
 ## Install Proxy
 
