@@ -29,7 +29,7 @@ cd /data/bkee/gse/server/bin
 #./gse_task -f /data/bkee/etc/gse/task.conf
 ```
 
-### Deply test on  tencent cloud
+### Deploy test on  tencent cloud
 
 ssh root@139.199.180.33 -p 22 XXXX 
 
