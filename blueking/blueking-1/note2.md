@@ -4,15 +4,7 @@ description: Issue collection
 
 # Notes\_kailun
 
-## Install Proxy
-
-1. Must use root/administrator to install and allow root login
-
-```text
-vim /etc/ssh/sshd_config
-"PermitRootLogin yes"
-service sshd restart
-```
+## 
 
 ## Install Agent
 
