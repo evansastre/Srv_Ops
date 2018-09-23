@@ -11,7 +11,12 @@
     * [19-21 Sep](blueking/blueking-1/weekly-report/19-21-sep.md)
   * [Deploy](blueking/blueking-1/deploy/README.md)
     * [Proxy](blueking/blueking-1/deploy/proxy.md)
-  * [Issues](blueking/blueking-1/issues.md)
+    * [Agent](blueking/blueking-1/deploy/agent.md)
+    * [Paths](blueking/blueking-1/deploy/paths.md)
+  * [Issues](blueking/blueking-1/issues/README.md)
+    * [Restart service](blueking/blueking-1/issues/restart-service.md)
+    * ["SSL error](blueking/blueking-1/issues/ssl-error.md)
+    * [Account 【Admin】 have no rights to operate](blueking/blueking-1/issues/account-admin-have-no-rights-to-operate.md)
   * [Architecture](blueking/blueking-1/architecture.md)
   * [Guide link](blueking/blueking-1/guide-link.md)
 
