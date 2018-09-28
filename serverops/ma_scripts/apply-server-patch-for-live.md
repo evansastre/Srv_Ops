@@ -1,5 +1,38 @@
 # Apply Server Patch For LIVE
 
+{% code-tabs %}
+{% code-tabs-item title="PreServer\_Patch.sh" %}
+```text
+#!/bin/bash
+NewServerPatchs=$1
+#NewServerPatchs='$new_server_patch'
+echo $NewServerPatchs
+
+cd /home/release/
+rm -rf /srv/salt/newserverpatch
+mkdir -p newserverpatch
+
+NewServerPatch_arr=($NewServerPatchs)
+for NewServerPatch in ${NewServerPatch_arr[@]}; do
+{
+    echo $NewServerPatch
+    sudo /usr/local/bin/unrar x -o+ '/home/release/'$NewServerPatch.rar /home/release/
+    sudo rsync -av '/home/release/'$NewServerPatch'/' /home/release/newserverpatch/
+}
+done
+
+sudo mv /home/release/newserverpatch /srv/salt/
+
+mv /srv/salt/newserverpatch/[Ss]ervice/  /srv/salt/newserverpatch/service/
+bash /srv/salt/QA_script/Server_Patch_Dev.sh newserverpatch
+exit
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% code-tabs %}
+{% code-tabs-item title="Server\_Patch\_LIVE.sh" %}
 ```bash
 #!/bin/bash
 
@@ -42,4 +75,6 @@ salt 'WorldDB*'  cp.get_dir salt://$content/service/CacheDaemon	   		 'D:\Servic
 salt -N 'World'  cp.get_dir salt://$content/service/GameDaemon		     'D:\Service'
 
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
