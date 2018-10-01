@@ -11,6 +11,7 @@
     * [24-28 Sep](blueking/blueking-1/weekly-report/24-28-sep.md)
     * [19-21 Sep](blueking/blueking-1/weekly-report/19-21-sep.md)
   * [Deploy](blueking/blueking-1/deploy/README.md)
+    * [server Initial](blueking/blueking-1/deploy/server-initial.md)
     * [Proxy](blueking/blueking-1/deploy/proxy.md)
     * [Agent](blueking/blueking-1/deploy/agent.md)
     * [Paths](blueking/blueking-1/deploy/paths.md)
