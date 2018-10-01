@@ -24,5 +24,5 @@ sudo service sshd restart
 
 2.Change cloud backend firewall rules to enable http, or enable all.
 
-
+3.Change "global.env"  export AUTO\_GET\_WANIP=1
 
