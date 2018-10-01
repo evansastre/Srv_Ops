@@ -20,3 +20,9 @@ sudo service sshd restart
 
 
 
+1.Change centos firewalld to iptables if needed.
+
+2.Change cloud backend firewall rules to enable http, or enable all.
+
+
+
