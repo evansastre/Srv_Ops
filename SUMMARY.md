@@ -20,6 +20,9 @@
     * [Restart service](blueking/blueking-1/issues/restart-service.md)
     * ["SSL error](blueking/blueking-1/issues/ssl-error.md)
     * [Account 【Admin】 have no rights to operate](blueking/blueking-1/issues/account-admin-have-no-rights-to-operate.md)
+    * [wmiexec.py Error](blueking/blueking-1/issues/wmiexec.py-error.md)
+    * [Impacket  Error](blueking/blueking-1/issues/impacket-error.md)
+    * [no success ip need register to cmdb](blueking/blueking-1/issues/no-success-ip-need-register-to-cmdb.md)
   * [Architecture](blueking/blueking-1/architecture.md)
   * [Guide link](blueking/blueking-1/guide-link.md)
 
