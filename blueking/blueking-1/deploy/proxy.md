@@ -6,7 +6,11 @@
 
 3.Proxy check "/etc/yum.conf"  , enable kernel update, repo useful.
 
-4.Require : rsync
+4.Require : rsync. If forgot and come back to this step, need install proxy again after install rsync.
+
+```text
+yum install rsync
+```
 
 5.Network access: 
 
@@ -19,9 +23,6 @@ proxy to proxy : port TCP:58930,10020 UDP:10020,10030
 agent to proxy: port TCP:48533,58625,59173,10020 UDP:10020,10030 
 proxy to agent: port TCP:60020-60030 UDP：60020-60030 
 proxy to agent windows: port TCP:22,139,445,49154(wmiexec)
-#open TCP/IP Netbios and its service, 
-#check netstat -ano | findstr "139"   (445) 
-#admin$ may need
 agent to agent: port TCP:60020-60030 UDP：60020-60030 
 ```
 
