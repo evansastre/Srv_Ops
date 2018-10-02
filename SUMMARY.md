@@ -8,6 +8,7 @@
   * [Notes\_huangsl](blueking/blueking-1/notes.md)
   * [Notes\_kailun](blueking/blueking-1/note2.md)
   * [Weekly Report](blueking/blueking-1/weekly-report/README.md)
+    * [1-5 Oct](blueking/blueking-1/weekly-report/1-5-oct.md)
     * [24-28 Sep](blueking/blueking-1/weekly-report/24-28-sep.md)
     * [19-21 Sep](blueking/blueking-1/weekly-report/19-21-sep.md)
   * [Deploy](blueking/blueking-1/deploy/README.md)
