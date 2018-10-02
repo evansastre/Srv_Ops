@@ -16,6 +16,8 @@
     * [Proxy](blueking/blueking-1/deploy/proxy.md)
     * [Agent](blueking/blueking-1/deploy/agent.md)
     * [Paths](blueking/blueking-1/deploy/paths.md)
+  * [Issues unsolved](blueking/blueking-1/issues-unsolved/README.md)
+    * [Windows job can not run as administrator](blueking/blueking-1/issues-unsolved/windows-job-can-not-run-as-administrator.md)
   * [Issues](blueking/blueking-1/issues/README.md)
     * [Restart service](blueking/blueking-1/issues/restart-service.md)
     * ["SSL error](blueking/blueking-1/issues/ssl-error.md)
