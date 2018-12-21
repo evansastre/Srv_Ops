@@ -1,6 +1,6 @@
 # Create service for selenium
 
-#### install selenium on client part {#Createserviceforselenium-installseleniumonclientpart}
+#### install selenium on client part <a id="Createserviceforselenium-installseleniumonclientpart"></a>
 
 ```bash
 sudo yum install centos-release-scl # install SCL
@@ -12,7 +12,7 @@ pip install psutil
 pip install -U selenium
 ```
 
-#### install selenium and java support units on server part {#Createserviceforselenium-installseleniumandjavasupportunitsonserverpart}
+#### install selenium and java support units on server part <a id="Createserviceforselenium-installseleniumandjavasupportunitsonserverpart"></a>
 
 
 
@@ -31,7 +31,7 @@ java  -jar selenium-server-standalone-3.6.0.jar
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### Create service {#Createserviceforselenium-Createservice}
+#### Create service <a id="Createserviceforselenium-Createservice"></a>
 
 1.Download tools : srvany.exe and instsrv.exe from microsoft.
 

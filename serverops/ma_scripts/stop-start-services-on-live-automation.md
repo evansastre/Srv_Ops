@@ -4,9 +4,9 @@
 
 Use selenium to operate service management website.
 
-### Prepare: {#Stop/StartservicesonLiveautomation-Prepare:}
+### Prepare: <a id="Stop/StartservicesonLiveautomation-Prepare:"></a>
 
-#### Install python support units on controller server {#Stop/StartservicesonLiveautomation-installpythonsupportunitsonsaltmasterserver}
+#### Install python support units on controller server <a id="Stop/StartservicesonLiveautomation-installpythonsupportunitsonsaltmasterserver"></a>
 
 \# install Python 2.7 and selenium
 
@@ -22,7 +22,7 @@ pip install -U selenium
 
 Set firewall rule on selenium server and PA to enable communication between controller server and selenium server.
 
-#### Install selenium and java support units on webadmin server \(QA:app1  Live:webadmin \) {#Stop/StartservicesonLiveautomation-installseleniumandjavasupportunitsonwebadminserver(QA:app1Live:webadmin)}
+#### Install selenium and java support units on webadmin server \(QA:app1  Live:webadmin \) <a id="Stop/StartservicesonLiveautomation-installseleniumandjavasupportunitsonwebadminserver(QA:app1Live:webadmin)"></a>
 
 selenium-server:install JRE
 
@@ -41,7 +41,7 @@ pause >nul
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### ocuments to learn python and selenium {#Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium}
+#### ocuments to learn python and selenium <a id="Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium"></a>
 
 selenium:
 
@@ -53,11 +53,11 @@ python:
 
 [https://www.tutorialspoint.com/python/index.htm](https://www.tutorialspoint.com/python/index.htm)
 
-### Test on QA {#Stop/StartservicesonLiveautomation-TestonQA}
+### Test on QA <a id="Stop/StartservicesonLiveautomation-TestonQA"></a>
 
 upload script to saltmaster
 
-#### hange in different area {#Stop/StartservicesonLiveautomation-changeindifferentarea}
+#### hange in different area <a id="Stop/StartservicesonLiveautomation-changeindifferentarea"></a>
 
 1.username password for server \[not in python script\]  
 2.monitorServer and seleniumServer   
@@ -65,7 +65,7 @@ upload script to saltmaster
 4.all hostname, seq and list define  
 5.in main function, change all excute Seq
 
-#### tep to update stop&start python script {#Stop/StartservicesonLiveautomation-steptoupdatestop&startpythonscript}
+#### tep to update stop&start python script <a id="Stop/StartservicesonLiveautomation-steptoupdatestop&amp;startpythonscript"></a>
 
 ### 1.
 

@@ -51,11 +51,11 @@ salt '*' cmd.run 'wbadmin delete backup -keepVersions:3'
 
 ## **To perform recovery use windows backup:**
 
-### [Disable McAfee Agent](http://gtoconfluence.garenanow.com:8090/display/BNS/Disable+McAfee+Agent) {#WindowsServerBackup-DisableMcAfeeAgent}
+### [Disable McAfee Agent](http://gtoconfluence.garenanow.com:8090/display/BNS/Disable+McAfee+Agent) <a id="WindowsServerBackup-DisableMcAfeeAgent"></a>
 
 
 
-### Uninstall Anti-Virus {#WindowsServerBackup-UninstallAnti-Virus}
+### Uninstall Anti-Virus <a id="WindowsServerBackup-UninstallAnti-Virus"></a>
 
 ```bash
 #open control panel to unstall VirusScan
@@ -64,7 +64,7 @@ cd "C:\software\McAfee\Common Framework"
 FrmInst.exe /remove=agent
 ```
 
-### Recovery {#WindowsServerBackup-Recovery}
+### Recovery <a id="WindowsServerBackup-Recovery"></a>
 
 ```bash
 #get versions, for example get version : 04/09/2018-03:02
@@ -73,7 +73,7 @@ salt '*' cmd.run 'wbadmin get versions -backupTarget:Z:'
 salt '*' cmd.run 'wbadmin start systemstaterecovery -backuptarget:Z: -version:04/09/2018-03:02 -quiet'
 ```
 
-### Mcafee Recovery after reboot {#WindowsServerBackup-McafeeRecoveryafterreboot}
+### Mcafee Recovery after reboot <a id="WindowsServerBackup-McafeeRecoveryafterreboot"></a>
 
 ```bash
 #1.Copy these folder from other server to unstalled-mcafee server

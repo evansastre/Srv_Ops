@@ -86,7 +86,7 @@ netsh advfirewall set allprofiles state on
 echo * done initialization
 ```
 
-### **Salt module for Windows firewall** {#WindowsFirewallCommand-SaltmoduleforWindowsfirewall}
+### **Salt module for Windows firewall** <a id="WindowsFirewallCommand-SaltmoduleforWindowsfirewall"></a>
 
 Add/delete rule
 
@@ -95,7 +95,7 @@ salt 'minion' firewall.add_rule 'rule_name' 'port' 'tcp' 'allow' 'in' 'xx.xx.xx.
 salt 'minion' firewall.delete_rule 'rule_name' 'port' 'tcp' 'in' 'xx.xx.xx.xx'
 ```
 
-### Enable/Disable windows firewall inbound/outbound {#WindowsFirewallCommand-Enable/Disablewindowsfirewallinbound/outbound}
+### Enable/Disable windows firewall inbound/outbound <a id="WindowsFirewallCommand-Enable/Disablewindowsfirewallinbound/outbound"></a>
 
 ```bash
 netsh advfirewall set domainprofile firewallpolicy blockinbound,blockoutbound

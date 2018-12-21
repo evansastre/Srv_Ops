@@ -1,6 +1,6 @@
 # Security policy apply
 
-### Security Setting Reg Path {#Securitypolicyapply-SecuritySettingRegPath}
+### Security Setting Reg Path <a id="Securitypolicyapply-SecuritySettingRegPath"></a>
 
 Find all key , type , path here , they guide to to the real path, not edit here:
 
@@ -10,7 +10,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SeCEdit\Reg Valu
 
 
 
-### Export policy from  template server {#Securitypolicyapply-Exportpolicyfromtemplateserver}
+### Export policy from  template server <a id="Securitypolicyapply-Exportpolicyfromtemplateserver"></a>
 
 1.
 
