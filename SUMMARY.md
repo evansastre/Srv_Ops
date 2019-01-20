@@ -1,7 +1,8 @@
 # Table of contents
 
 * [srvops](README.md)
-* [Linux Fundamental](linux-fundamental.md)
+* [Linux Fundamental](linux-fundamental/README.md)
+  * [Basic Shell Command](linux-fundamental/basic-shell-command.md)
 
 ## ServerOps
 
