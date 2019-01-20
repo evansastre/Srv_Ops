@@ -1,6 +1,7 @@
 # Table of contents
 
 * [srvops](README.md)
+* [Linux Fundamental](linux-fundamental.md)
 
 ## ServerOps
 
@@ -26,8 +27,7 @@
     * [Security policy apply](serverops/security-1/security/security-policy-apply.md)
     * [Windows Server Backup](serverops/security-1/security/windows-server-backup.md)
     * [Disable McAfee Agent](serverops/security-1/security/disable-mcafee-agent.md)
-* [Normal Maintenance Procedure](serverops/normal-maintenance-procedure/README.md)
-  * [Test](serverops/normal-maintenance-procedure/test.md)
+* [Normal Maintenance Procedure](serverops/normal-maintenance-procedure.md)
 * [Operation](serverops/operation/README.md)
   * [Check list for new server setup](serverops/operation/check-list-for-new-server-setup.md)
   * [Reduce core numbers on physical level](serverops/operation/reduce-core-numbers-on-physical-level.md)
