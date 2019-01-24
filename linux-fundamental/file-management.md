@@ -58,6 +58,11 @@
 #n   : next 
 #N   : previous
 
+##Find and Replace
+#:s/{old}/{new}/{options} Substitute {new} for {old} on the current line
+#:%s/{old}/{new}/{options} Substitute {new} for {old} in the entire document
+#The g option substitutes all occurrences on a line, otherwise just the first occurrence is changed per line.
+#example    :$s/i/I/g   change all i to I
 ```
 
 
