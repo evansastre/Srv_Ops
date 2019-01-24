@@ -30,9 +30,10 @@ seleniumServer_Hostname="TH-**"
  
 #kill process
 def kill_process(myprocess):
-    subprocess.call(["salt", seleniumServer_Hostname,"cmd.exec_code","python", \
-                     "import psutil ; PROCNAME = '"+ myprocess +"' ; "+ \
-                     "[proc.kill() for proc in psutil.process_iter() if proc.name() == PROCNAME]"])
+    subprocess.call(["salt", seleniumServer_Hostname,"cmd.run","taskkill /F /IM "+ myprocess.])
+#    subprocess.call(["salt", seleniumServer_Hostname,"cmd.exec_code","python", \
+#                     "import psutil ; PROCNAME = '"+ myprocess +"' ; "+ \
+#                     "[proc.kill() for proc in psutil.process_iter() if proc.name() == PROCNAME]"])
 #star selenium server
 def restart_selenium_server():
     subprocess.call(["salt", seleniumServer_Hostname,"cmd.run","sc stop selenium & ping 127.0.0.1 -n 4 & sc start selenium"])
@@ -142,14 +143,15 @@ def connect_selenium_server():
     except:
         global restart_time
         if restart_time>2:
-            kill_process("chrome.exe")
-            kill_process("conhost.exe")
+            #kill_process("chrome.exe")
+            #kill_process("conhost.exe")
             print "Selenium server restart fail."
             #email alert
             os.system('echo "Selenium server restart fail. Please check." | mutt -e "my_hdr from:thlive<master@th.com>" -s "selenium check" abc@domain.com')
             exit()
         else:
             restart_time+=1
+        kill_process("chrome.exe")
         kill_process("chromedriver.exe")
         kill_process("java.exe")
         restart_selenium_server()
@@ -159,7 +161,7 @@ def connect_selenium_server():
         #return
  
 def LiveService_state_check():
-    kill_process("chromedriver.exe")
+    #kill_process("chromedriver.exe")
     #kill_process("conhost.exe")
     global restart_time
     restart_time=0
