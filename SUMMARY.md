@@ -2,6 +2,7 @@
 
 * [Linux](README.md)
 * [Linux Fundamental](linux-fundamental/README.md)
+  * [File management](linux-fundamental/file-management.md)
   * [Signs and Symbols](linux-fundamental/signs-and-symbols.md)
   * [Basic Shell Command](linux-fundamental/basic-shell-command.md)
   * [Permissions](linux-fundamental/permissions.md)
