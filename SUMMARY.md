@@ -6,6 +6,7 @@
   * [Signs and Symbols](linux-fundamental/signs-and-symbols.md)
   * [Basic Shell Command](linux-fundamental/basic-shell-command.md)
   * [Permissions](linux-fundamental/permissions.md)
+  * [Keygen](linux-fundamental/keygen.md)
 
 ## ServerOps
 
