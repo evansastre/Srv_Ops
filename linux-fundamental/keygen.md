@@ -1,6 +1,10 @@
 # Keygen
 
+Generate a new key:
 
+```text
+ssh-keygen -t rsa -C "youremail@test.com"
+```
 
 The command below can be used to convert an SSH2 private key into the OpenSSH format:
 
