@@ -1,12 +1,6 @@
 # Table of contents
 
-* [Linux](README.md)
-* [Linux Fundamental](linux-fundamental/README.md)
-  * [File management](linux-fundamental/file-management.md)
-  * [Signs and Symbols](linux-fundamental/signs-and-symbols.md)
-  * [Basic Shell Command](linux-fundamental/basic-shell-command.md)
-  * [Permissions](linux-fundamental/permissions.md)
-  * [Keygen](linux-fundamental/keygen.md)
+* [Server Ops](README.md)
 
 ## ServerOps
 
@@ -62,4 +56,13 @@
 * [Issue & solution](serverop/issue/README.md)
   * [Centos6.\* upgrade glibc](serverop/issue/centos6.-upgrade-glibc.md)
   * [Use github pages build personal blog](serverop/issue/use-github-pages-build-personal-blog.md)
+
+## Linux
+
+* [Linux Fundamental](linux/linux-fundamental/README.md)
+  * [File management](linux/linux-fundamental/file-management.md)
+  * [Signs and Symbols](linux/linux-fundamental/signs-and-symbols.md)
+  * [Basic Shell Command](linux/linux-fundamental/basic-shell-command.md)
+  * [Permissions](linux/linux-fundamental/permissions.md)
+  * [Keygen](linux/linux-fundamental/keygen.md)
 

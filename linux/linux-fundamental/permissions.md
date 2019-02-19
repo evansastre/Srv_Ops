@@ -20,7 +20,7 @@ id -Gn
 
 ```
 
-![](../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image.png)
 
 ```text
 #change permission
