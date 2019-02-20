@@ -51,6 +51,7 @@
     * [registry windows service](serverop/config/common-server-configuration-on-windows/registry-windows-service.md)
     * [Windows Firewall Command](serverop/config/common-server-configuration-on-windows/windows-firewall-command.md)
   * [Common server configuration on centos](serverop/config/common-server-configuration-on-centos/README.md)
+    * [Setup multiple saltmaster](serverop/config/common-server-configuration-on-centos/setup-multiple-saltmaster.md)
     * [Config mail sender on centos6](serverop/config/common-server-configuration-on-centos/config-mail-sender-on-centos6.md)
     * [Install unrar on CentOS 6](serverop/config/common-server-configuration-on-centos/install-unrar-on-centos-6.md)
 * [Issue & solution](serverop/issue/README.md)
