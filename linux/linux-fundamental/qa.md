@@ -97,7 +97,92 @@ F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
 
 ```
 
-8.
+8.Find provider of a tool
+
+```text
+$yum whatprovides netstat
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.netonboard.com
+ * epel: epel.scopesky.iq
+ * extras: centos.gbnetwork.my
+ * updates: centos.exabytes.com.my
+base/7/x86_64/filelists_db                               | 7.1 MB     00:01
+epel/x86_64/filelists_db                                 |  11 MB     00:01
+extras/7/x86_64/filelists_db                             | 230 kB     00:00
+saltstack-repo/7/x86_64/filelists_db                     |  88 kB     00:00
+updates/7/x86_64/filelists_db                            | 1.9 MB     00:00
+net-tools-2.0-0.24.20131004git.el7.x86_64 : Basic networking tools
+Repo        : base
+Matched from:
+Filename    : /bin/netstat
+
+#So we can know it's in "net-tools"
+$yum install net-tools
+```
+
+9.Show openning ports
+
+```text
+$netstat -lnp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1035/sshd
+tcp        0      0 :::22                       :::*                        LISTEN      1035/sshd
+udp        0      0 0.0.0.0:68                  0.0.0.0:*                               931/dhclient
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node PID/Program name    Path
+unix  2      [ ACC ]     STREAM     LISTENING     6825   1/init              @/com/ubuntu/upstart
+unix  2      [ ACC ]     STREAM     LISTENING     8429   1003/dbus-daemon    /var/run/dbus/system_bus_socket
+```
+
+10.How to check the network connection status
+
+```text
+$netstat -an
+```
+
+11.Change IP.
+
+```text
+vim /etc/sysconfig/network-scripts/ifcft-eth0
+
+#restart NIC
+ifdown eth0
+ifup eth0
+
+#or restart network service
+service network restart
+```
+
+12. Set multiple IP in one NIC
+
+```text
+#ip1
+cat /etc/sysconfig/network-scripts/ifcfg-eth0 
+
+#ip2
+cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0:1
+vim /etc/sysconfig/network-scripts/ifcfg-eth0:1
+
+#restart 
+service network restart
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
