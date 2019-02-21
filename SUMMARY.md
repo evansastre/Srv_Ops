@@ -61,6 +61,7 @@
 ## Linux
 
 * [Linux Fundamental](linux/linux-fundamental/README.md)
+  * [QA](linux/linux-fundamental/qa.md)
   * [File management](linux/linux-fundamental/file-management.md)
   * [Signs and Symbols](linux/linux-fundamental/signs-and-symbols.md)
   * [Basic Shell Command](linux/linux-fundamental/basic-shell-command.md)
