@@ -10,9 +10,12 @@ vim  /etc/sysconfig/network-scripts/ifcfg-eth0
 2.Check dns server
 
 ```text
-nslookup ipAddr
+nslookup domain.com
+nslook www.youtube.com
 
-dig 
+
+dig @DNSip http://domain.com
+dig @8.8.8.8 www.youtube.com
 ```
 
 3. Record
@@ -24,5 +27,5 @@ CNAME  domainname1 to domainname2, redirect
 MX   mail exchange
 ```
 
-4.
+
 

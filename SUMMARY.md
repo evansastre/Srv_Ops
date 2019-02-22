@@ -62,16 +62,21 @@
 
 * [Linux Fundamental](linux/linux-fundamental/README.md)
   * [Network](linux/linux-fundamental/network/README.md)
+    * [Common](linux/linux-fundamental/network/common.md)
     * [DNS](linux/linux-fundamental/network/dns.md)
     * [iptables](linux/linux-fundamental/network/iptables.md)
-    * [Common](linux/linux-fundamental/network/common.md)
+    * [tcpdump](linux/linux-fundamental/network/tcpdump.md)
   * [QA](linux/linux-fundamental/qa.md)
   * [running level](linux/linux-fundamental/running-level.md)
   * [File management](linux/linux-fundamental/file-management.md)
   * [Signs and Symbols](linux/linux-fundamental/signs-and-symbols.md)
   * [Basic Shell Command](linux/linux-fundamental/basic-shell-command.md)
   * [Permissions](linux/linux-fundamental/permissions.md)
+  * [CPU&Memory](linux/linux-fundamental/cpu-and-memory.md)
+  * [Disk](linux/linux-fundamental/disk.md)
   * [Keygen](linux/linux-fundamental/keygen.md)
+  * [Screen](linux/linux-fundamental/screen.md)
+  * [Rsync](linux/linux-fundamental/rsync.md)
 
 ## Windows
 

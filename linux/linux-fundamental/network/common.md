@@ -6,7 +6,8 @@
 yum install -y sysstat# install sysstat package, get sar command
 sar -n DEV# view NIC traffic, default 10 minutes update
 sar -n DEV 1 10# is displayed once in a second, showing a total of 10 times
-sar -n DEV -f /var/log/sa/sa22#View the traffic log for the specified date
+sar -n DEV -f /var/log/sa/sa22  #View the traffic log for the specified date
+sar -q -f -f /var/log/sa/sa22
 ```
 
 2.Show running process
