@@ -65,39 +65,7 @@ PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
 #%MEM memory usage percentage
 ```
 
-6.How to check the NIC traffic in real time? How to view historical NIC traffic?
-
-```text
-yum install -y sysstat# install sysstat package, get sar command
-sar -n DEV# view NIC traffic, default 10 minutes update
-sar -n DEV 1 10# is displayed once in a second, showing a total of 10 times
-sar -n DEV -f /var/log/sa/sa22#View the traffic log for the specified date
-```
-
-7.Show running process
-
-```text
-$ps -aux
-Warning: bad syntax, perhaps a bogus '-'? See /usr/share/doc/procps-3.2.8/FAQ
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  0.0  0.0   2900  1428 ?        Ss   10:43   0:01 /sbin/init
-root         2  0.0  0.0      0     0 ?        S    10:43   0:00 [kthreadd]
-root         3  0.0  0.0      0     0 ?        S    10:43   0:00 [migration/0]
-root         4  0.0  0.0      0     0 ?        S    10:43   0:00 [ksoftirqd/0]
-
-#STAT: S = sleeping , s = main process, Z =zombie process
-
-$ps -elf
-F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
-4 S root         1     0  0  80   0 -   725 -      10:43 ?        00:00:01 /sbin/init
-1 S root         2     0  0  80   0 -     0 -      10:43 ?        00:00:00 [kthreadd]
-1 S root         3     2  0 -40   - -     0 -      10:43 ?        00:00:00 [migration/0]
-1 S root         4     2  0  80   0 -     0 -      10:43 ?        00:00:00 [ksoftirqd/0]
-1 S root         5     2  0 -40   - -     0 -      10:43 ?        00:00:00 [migration/0]
-
-```
-
-8.Find provider of a tool
+6.Find provider of a tool
 
 ```text
 $yum whatprovides netstat
@@ -121,52 +89,7 @@ Filename    : /bin/netstat
 $yum install net-tools
 ```
 
-9.Show openning ports
-
-```text
-$netstat -lnp
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
-tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1035/sshd
-tcp        0      0 :::22                       :::*                        LISTEN      1035/sshd
-udp        0      0 0.0.0.0:68                  0.0.0.0:*                               931/dhclient
-Active UNIX domain sockets (only servers)
-Proto RefCnt Flags       Type       State         I-Node PID/Program name    Path
-unix  2      [ ACC ]     STREAM     LISTENING     6825   1/init              @/com/ubuntu/upstart
-unix  2      [ ACC ]     STREAM     LISTENING     8429   1003/dbus-daemon    /var/run/dbus/system_bus_socket
 ```
-
-10.How to check the network connection status
-
-```text
-$netstat -an
-```
-
-11.Change IP.
-
-```text
-vim /etc/sysconfig/network-scripts/ifcft-eth0
-
-#restart NIC
-ifdown eth0
-ifup eth0
-
-#or restart network service
-service network restart
-```
-
-12. Set multiple IP in one NIC
-
-```text
-#ip1
-cat /etc/sysconfig/network-scripts/ifcfg-eth0 
-
-#ip2
-cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0:1
-vim /etc/sysconfig/network-scripts/ifcfg-eth0:1
-
-#restart 
-service network restart
 
 ```
 
