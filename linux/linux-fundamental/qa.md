@@ -155,6 +155,44 @@ dmesg
 
 ```
 
+15. Hard Link and Symbolic Link.
+
+> **Symbolic link** \(Symlinks/Soft links\) are links between files. It is nothing but a shortcut of a file\(in windows terms\).
+>
+> **Hard link** is the exact replica of the actual file it is pointing to .Both the hard link and the linked file shares the same inode .
+>
+> Hard links cannot span across filesystem.
+>
+> Hard links can link only files,not directories.
+
+```text
+#To create Symlink 
+ln -s <source> <linkname>
+
+#create hard link
+ln <source> <linkname>
+```
+
+16.Count the number of local user accounts
+
+```text
+wc -l /etc/passwd|cut -d" " -f1
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -73,3 +73,7 @@
   * [Permissions](linux/linux-fundamental/permissions.md)
   * [Keygen](linux/linux-fundamental/keygen.md)
 
+## Windows
+
+* [Activity Directory](windows/activity-directory.md)
+

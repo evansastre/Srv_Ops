@@ -91,9 +91,11 @@ mii-tool eth0
 ethtool eth0
 ```
 
+8.NAT
 
+NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share single connection to the Internet.
 
-
+9.
 
 
 
