@@ -102,17 +102,58 @@ vim /etc/sysconfig/network
 hostnamectl NewHostName
 ```
 
+8.How do I back up a user's mission plan?
 
+```text
+cp /var/spool/cron/user1 /tmp/bak/cron_bak/
+```
 
+9.Close unnecessary service.
 
+```text
+yum install ntsysv
+#check all services
+ntsysv
 
+#close
+chkconfig service name off
+```
 
+10. Rsync
 
+```text
+(1) rsync -av  /dira/  ip:/dirb/
+(2) rsync -av  /dira/  ip::dirb
 
+(1)synchronized by ssh
+(2)Synchronized by rsync service
 
+```
 
+11.When rsync is synchronized, if there is a soft connection in the source to be synchronized, how to synchronize the target file or directory of the soft connection?
 
+```text
+rsync -avL  /dira/  ip:/dirb/
+#need add -L 
+```
 
+12.After logging in to an account, what log files will the system record in the log file?
+
+A: The user authentication process is recorded in /var/log/secure, and the login success information is recorded in /var/log/wtmp.
+
+13.Check information on disk or NIC.
+
+```text
+dmesg
+```
+
+14.Use xargs and exec to achieve such a requirement, and change the permissions of all files with the .txt file in the current directory to 777.
+
+```text
+（1）find ./ -type f -name "*.txt" |xargs chmod 777
+（2）find ./ -type f -name "*.txt" -exec chmod 777 {} \;
+
+```
 
 
 
