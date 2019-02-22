@@ -37,15 +37,22 @@ F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
 3.Show openning ports
 
 ```text
-$netstat -lnp
+netstat -anlp
+nmap 127.0.0.1
 
-$nmap 127.0.0.1
+
+#check port 3306
+netstat -anlp | grep 3306
+lsof -i:3306
+telnet 127.0.0.1 3306
+nc -vv 127.0.0.1 3306 #netcat: nc
+
 ```
 
 4.How to check the network connection status
 
 ```text
-$netstat -an
+$netstat -anp 
 ```
 
 5.Change IP.
