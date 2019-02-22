@@ -89,8 +89,17 @@ Filename    : /bin/netstat
 $yum install net-tools
 ```
 
-```
+7.Change hostname
 
+```
+###CentOS6.X
+##temp
+hostname NewHostName
+##perm
+vim /etc/sysconfig/network
+
+###CentOS7.X
+hostnamectl NewHostName
 ```
 
 

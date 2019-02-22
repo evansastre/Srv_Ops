@@ -62,6 +62,7 @@
 
 * [Linux Fundamental](linux/linux-fundamental/README.md)
   * [Network](linux/linux-fundamental/network/README.md)
+    * [DNS](linux/linux-fundamental/network/dns.md)
     * [iptables](linux/linux-fundamental/network/iptables.md)
     * [Common](linux/linux-fundamental/network/common.md)
   * [QA](linux/linux-fundamental/qa.md)
