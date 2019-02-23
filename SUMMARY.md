@@ -93,9 +93,10 @@
     * [SVN](linux/open-source-application/version-control/svn.md)
 * [Enterprise Application](linux/enterprise-application/README.md)
   * [BlueKing](linux/enterprise-application/blueking/README.md)
-    * [Data Storage](linux/enterprise-application/blueking/data-storage.md)
-    * [Tecent develop](linux/enterprise-application/blueking/tecent-develop.md)
     * [Architecture](linux/enterprise-application/blueking/architecture.md)
+    * [Tecent develop](linux/enterprise-application/blueking/tecent-develop.md)
+    * [Data Storage](linux/enterprise-application/blueking/data-storage.md)
+    * [DB Migration Testing](linux/enterprise-application/blueking/db-migration-testing.md)
   * [Cobbler](linux/enterprise-application/cobbler.md)
 
 ## Windows
