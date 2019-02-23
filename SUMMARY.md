@@ -79,6 +79,7 @@
   * [Screen](linux/linux-fundamental/screen.md)
   * [Rsync](linux/linux-fundamental/rsync.md)
 * [Enterprise Application](linux/enterprise-application/README.md)
+  * [zookeeper](linux/enterprise-application/zookeeper.md)
   * [Cobbler](linux/enterprise-application/cobbler.md)
 
 ## Windows
