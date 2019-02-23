@@ -78,8 +78,13 @@
   * [Keygen](linux/linux-fundamental/keygen.md)
   * [Screen](linux/linux-fundamental/screen.md)
   * [Rsync](linux/linux-fundamental/rsync.md)
+* [Open Source Application](linux/open-source-application/README.md)
+  * [Docker](linux/open-source-application/docker.md)
+  * [Vagrant](linux/open-source-application/vagrant.md)
+  * [zookeeper](linux/open-source-application/zookeeper.md)
 * [Enterprise Application](linux/enterprise-application/README.md)
-  * [zookeeper](linux/enterprise-application/zookeeper.md)
+  * [BlueKing](linux/enterprise-application/blueking/README.md)
+    * [Architecture](linux/enterprise-application/blueking/architecture.md)
   * [Cobbler](linux/enterprise-application/cobbler.md)
 
 ## Windows
