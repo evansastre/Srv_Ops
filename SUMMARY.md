@@ -103,5 +103,6 @@
 
 ## Windows
 
-* [Activity Directory](windows/activity-directory.md)
+* [Activity Directory](windows/activity-directory/README.md)
+  * [Ports](windows/activity-directory/ports.md)
 
