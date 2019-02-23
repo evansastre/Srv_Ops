@@ -62,6 +62,7 @@
 
 * [Linux Fundamental](linux/linux-fundamental/README.md)
   * [Network](linux/linux-fundamental/network/README.md)
+    * [Cisco](linux/linux-fundamental/network/cisco.md)
     * [Common](linux/linux-fundamental/network/common.md)
     * [route](linux/linux-fundamental/network/route.md)
     * [DNS](linux/linux-fundamental/network/dns.md)
@@ -92,6 +93,7 @@
     * [Git](linux/open-source-application/version-control/git.md)
     * [SVN](linux/open-source-application/version-control/svn.md)
 * [Enterprise Application](linux/enterprise-application/README.md)
+  * [Citrix](linux/enterprise-application/citrix.md)
   * [BlueKing](linux/enterprise-application/blueking/README.md)
     * [Architecture](linux/enterprise-application/blueking/architecture.md)
     * [Tecent develop](linux/enterprise-application/blueking/tecent-develop.md)
