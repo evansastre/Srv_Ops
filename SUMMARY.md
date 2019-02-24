@@ -66,6 +66,7 @@
     * [Common](linux/linux-fundamental/network/common.md)
     * [route](linux/linux-fundamental/network/route.md)
     * [DNS](linux/linux-fundamental/network/dns.md)
+    * [DHCP](linux/linux-fundamental/network/dhcp.md)
     * [iptables](linux/linux-fundamental/network/iptables.md)
     * [tcpdump](linux/linux-fundamental/network/tcpdump.md)
   * [QA](linux/linux-fundamental/qa.md)

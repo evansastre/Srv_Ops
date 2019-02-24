@@ -27,5 +27,9 @@ CNAME  domainname1 to domainname2, redirect
 MX   mail exchange
 ```
 
+4.When will use TCP in DNS?
 
+Data is over 512 bit  or  zune trasfer 
+
+5.
 
