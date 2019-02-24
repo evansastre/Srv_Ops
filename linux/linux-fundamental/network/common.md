@@ -96,7 +96,7 @@ ethtool eth0
 
 NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share single connection to the Internet.
 
-9.
+9.[Basic Shell Command](https://evansastre.gitbook.io/srvops/~/edit/drafts/-LZUrlSGsk68nRQLH9aA/linux/linux-fundamental/basic-shell-command)
 
 
 
