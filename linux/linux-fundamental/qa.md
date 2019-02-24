@@ -18,7 +18,7 @@ hostname NewHostName
 vim /etc/sysconfig/network
 
 ###CentOS7.X
-hostnamectl NewHostName
+hostnamectl set-hostname NewHostName
 ```
 
 3.How do I back up a user's mission plan?

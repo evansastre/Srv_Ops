@@ -63,6 +63,7 @@
 * [Linux Fundamental](linux/linux-fundamental/README.md)
   * [Network](linux/linux-fundamental/network/README.md)
     * [Cisco](linux/linux-fundamental/network/cisco/README.md)
+      * [multicast](linux/linux-fundamental/network/cisco/multicast.md)
       * [config](linux/linux-fundamental/network/cisco/config.md)
       * [Vlan](linux/linux-fundamental/network/cisco/vlan.md)
       * [BGP](linux/linux-fundamental/network/cisco/bgp.md)
