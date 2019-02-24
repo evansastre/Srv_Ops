@@ -96,7 +96,35 @@ ethtool eth0
 
 NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share single connection to the Internet.
 
-9.[Basic Shell Command](https://evansastre.gitbook.io/srvops/~/edit/drafts/-LZUrlSGsk68nRQLH9aA/linux/linux-fundamental/basic-shell-command)
+9.Transfer files larger than 10K in the current directory to the /tmp directory.
+
+```text
+#/bin/sh
+#Programm :
+# Using for move currently directory to /tmp
+for FileName in `ls -l |awk ‘$5>10240 {print $9}’`
+do
+mv $FileName /tmp
+done
+ls -la     /tmp
+echo “Done! ”
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
