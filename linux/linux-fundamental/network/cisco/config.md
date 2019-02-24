@@ -1,4 +1,4 @@
-# Cisco
+# config
 
 思科常用命令大权  
 1用户模式
@@ -138,12 +138,8 @@ sw1\(config-if\)\#switch port-security
 sw1\(config-if\)\#switch port-security maximum 1  
 //以上命令是只允许该端口下的mac条目最大数量为1，即只允许一个设备接入  
 sw1\(config-if\)\#switch port-security violation \(protect\|shutdown\|restrict\)  
-//命令含义是：protect :当新的计算机接入时，如果该接口的mac条目超过最大数量，则这个新的计算机将无法接入，而原有的计算机不受影
-
-响。  
-shutdown :当新的计算机接入时，如果该接口的mac条目超过最大数量，则该接口将会被关闭，则这个新的计算机和原有的计算机都无法接入，
-
-需要管理员使用“no shutdown”命令重新打开。  
+//命令含义是：protect :当新的计算机接入时，如果该接口的mac条目超过最大数量，则这个新的计算机将无法接入，而原有的计算机不受影响。  
+shutdown :当新的计算机接入时，如果该接口的mac条目超过最大数量，则该接口将会被关闭，则这个新的计算机和原有的计算机都无法接入，需要管理员使用“no shutdown”命令重新打开。  
 restrict: 当新的计算机接入时，如果该接口的mac条目超过最大数量，则这个新的计算机可以接入，然而交换机将发送警告信息。  
 sw1\(config-if\)\#switch port-security mac-address 0019.5535.b828（r1的mac）  
 //允许r1路由器从f0/1接口接入。  
@@ -325,8 +321,7 @@ Switch\#
 
 --------------------------------------------------------------------------------
 
-fishwfk  
-2006-09-15, 16:10  
+  
 配置VLAN trunk  
 configure terminal 进入配置状态  
 interface interface-Id 进入端口配置状态  
@@ -348,9 +343,7 @@ Switch\(config-if\)\# end
 configure terminal子 进入配置状态  
 interface interface-id 进入端口配置  
 switchport mode trunk 配置二层口为trunk  
-switchport trunk allowed vlan {add \| all \| except \| remove} vlan-list可选\) 配置trunk允许的VLAN.使用add, all, except, remove关
-
-健字  
+switchport trunk allowed vlan {add \| all \| except \| remove} vlan-list可选\) 配置trunk允许的VLAN.使用add, all, except, remove关健字  
 no switchport trunk allowed vlan 允许所有VLAN通过  
 例  
 Switch\(config\)\# interface fastethernet0/1  
