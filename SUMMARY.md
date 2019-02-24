@@ -70,6 +70,7 @@
     * [iptables](linux/linux-fundamental/network/iptables.md)
     * [tcpdump](linux/linux-fundamental/network/tcpdump.md)
   * [QA](linux/linux-fundamental/qa.md)
+  * [Directory](linux/linux-fundamental/directory.md)
   * [running level](linux/linux-fundamental/running-level.md)
   * [File management](linux/linux-fundamental/file-management.md)
   * [Signs and Symbols](linux/linux-fundamental/signs-and-symbols.md)
@@ -105,5 +106,6 @@
 ## Windows
 
 * [Activity Directory](windows/activity-directory/README.md)
+  * [AD Database](windows/activity-directory/ad-database.md)
   * [Ports](windows/activity-directory/ports.md)
 
