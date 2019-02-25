@@ -117,9 +117,9 @@ $ ssh -v -l jsmith remotehost.example.com
 $ ssh -V
 ```
 
-更多示例：[5 Basic Linux SSH Client Commands](http://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
+更多示例：[Basic Linux SSH Client Commands](http://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
 
-#### 5. sed
+## sed
 
 当你将Dos系统中的文件复制到Unix/Linux后，这个文件每行都会以\r\n结尾，sed可以轻易将其转换为Unix格式的文件，使用\n结尾的文件
 
@@ -139,9 +139,15 @@ $ sed -n '1!G; h; p' filename
 $ sed '/./=' thegeekstuff.txt | sed 'N; s/\n/ /'
 ```
 
+s
+
+```text
+sed -r 's/(^[^#])/#&/' /path/to
+```
+
 更多示例：[Advanced Sed Substitution Examples](http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/)
 
-#### 6. awk
+#### awk
 
 删除重复行
 
@@ -161,9 +167,9 @@ $ awk -F ':' '$3=$4' /etc/passwd
 $ awk '{print $2,$5;}' employee.txt
 ```
 
-更多示例：[8 Powerful Awk Built-in Variables – FS, OFS, RS, ORS, NR, NF, FILENAME, FNR](http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/)
+更多示例：[Powerful Awk Built-in Variables – FS, OFS, RS, ORS, NR, NF, FILENAME, FNR](http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/)
 
-#### 7. vim
+## vim
 
 打开文件并跳到第10行
 
@@ -185,7 +191,7 @@ $ vim -R /etc/passwd
 
 更多示例：[How To Record and Play in Vim Editor](http://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/)
 
-#### 8. diff
+## diff
 
 比较的时候忽略空白符
 
@@ -193,7 +199,7 @@ $ vim -R /etc/passwd
 $ diff -w name_list.txt name_list_new.txt
 ```
 
-#### 9. sort
+## sort
 
 以升序对文件内容排序
 

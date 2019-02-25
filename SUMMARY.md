@@ -77,6 +77,7 @@
     * [iptables](linux/linux-fundamental/network/iptables.md)
     * [tcpdump](linux/linux-fundamental/network/tcpdump.md)
   * [kernal arguments](linux/linux-fundamental/kernal-arguments.md)
+  * [Performance](linux/linux-fundamental/performance.md)
   * [QA](linux/linux-fundamental/qa.md)
   * [Directory](linux/linux-fundamental/directory.md)
   * [running level](linux/linux-fundamental/running-level.md)
