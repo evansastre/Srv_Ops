@@ -74,7 +74,11 @@ ln <source> <linkname>
 wc -l /etc/passwd|cut -d" " -f1
 ```
 
+9.forbid  ping 1, allow 0
 
+```text
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+```
 
 
 
