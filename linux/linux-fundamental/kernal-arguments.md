@@ -1,4 +1,13 @@
-# kernal arguments
+# Kernel parameter tuning
+
+```text
+#add tuning lines in this file
+sudo vim /etc/sysctl.conf
+#let it work now
+sudo /sbin/sysctl -p
+```
+
+
 
 abi.vsyscall32 = 1  
 crypto.fips\_enabled = 0  
@@ -40,7 +49,7 @@ dev.mac\_hid.mouse\_button3\_keycode = 100
 dev.mac\_hid.mouse\_button\_emulation = 0  
 dev.parport.default.spintime = 500  
 dev.parport.default.timeslice = 200  
-dev.raid.speed\_limit\_max = 200000 \#RAID最大读取速率，如果RAID性能较高，可以修改此上限来提升IO性能  
+**dev.raid.speed\_limit\_max = 200000 \#RAID最大读取速率，如果RAID性能较高，可以修改此上限来提升IO性能**  
 dev.raid.speed\_limit\_min = 1000 \#RAID最小读取速率  
 dev.scsi.logging\_level = 0 \#是否开启scsi磁盘的日志功能，一般情况不建议开启  
 fs.aio-max-nr = 65536  
