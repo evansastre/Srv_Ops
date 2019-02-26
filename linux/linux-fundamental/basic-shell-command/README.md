@@ -147,7 +147,7 @@ sed -r 's/(^[^#])/#&/' /path/to
 
 更多示例：[Advanced Sed Substitution Examples](http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/)
 
-#### awk
+## awk
 
 删除重复行
 
@@ -219,7 +219,7 @@ $ sort -r names.txt
 $ sort -t: -k 3n /etc/passwd | more
 ```
 
-#### 10. export
+## export
 
 输出跟字符串oracle匹配的环境变量
 
@@ -237,7 +237,7 @@ declare -x ORACLE_TERM="xterm"
 $ export ORACLE_HOME=/u01/app/oracle/product/10.2.0
 ```
 
-#### 11. xargs
+##  xargs
 
 将所有图片文件拷贝到外部驱动器
 
@@ -257,7 +257,7 @@ $ find / -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
 $ cat url-list.txt | xargs wget –c
 ```
 
-#### 12. ls
+## ls
 
 以易读的方式显示文件大小\(显示为MB,GB...\)
 
@@ -280,11 +280,11 @@ $ ls -F
 
 更多示例：[Unix LS Command: 15 Practical Examples](http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/)
 
-#### 13. pwd
+##  pwd
 
 输出当前工作目录
 
-#### 14. cd
+## cd
 
 `cd -`可以在最近工作的两个目录间切换
 
@@ -292,7 +292,7 @@ $ ls -F
 
 更多示例：[6 Awesome Linux cd command Hacks](http://www.thegeekstuff.com/2008/10/6-awesome-linux-cd-command-hacks-productivity-tip3-for-geeks/)
 
-#### 15. gzip
+## gzip
 
 创建一个\*.gz的压缩文件
 
@@ -314,7 +314,7 @@ $ gzip -l *.gz
           23709               97975  75.8% asp-patch-rpms.txt
 ```
 
-#### 16. bzip2
+## bzip2
 
 创建\*.bz2压缩文件
 
@@ -330,7 +330,7 @@ bzip2 -d test.txt.bz2
 
 更多示例：[BZ is Eazy! bzip2, bzgrep, bzcmp, bzdiff, bzcat, bzless, bzmore examples](http://www.thegeekstuff.com/2010/10/bzcommand-examples/)
 
-#### 17. uzip
+## uzip
 
 解压\*.zip文件
 
@@ -351,7 +351,7 @@ Length     Date   Time    Name
 10542  08-25-98 21:07   classes_ncomp
 ```
 
-#### 18. shutdown
+## shutdown
 
 关闭系统并立即关机
 
@@ -377,7 +377,7 @@ $ shutdown -r now
 $ shutdown -Fr now
 ```
 
-#### 19. ftp
+##  ftp
 
 ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件
 
@@ -399,7 +399,7 @@ ftp> mls *.html -
 
 更多示例：[FTP and SFTP Beginners Guide with 10 Examples](http://www.thegeekstuff.com/2010/06/ftp-sftp-tutorial/)
 
-#### 20. crontab
+## crontab
 
 查看某个用户的crontab入口
 
@@ -415,7 +415,7 @@ $ crontab -u john -l
 
 更多示例：[Linux Crontab: 15 Awesome Cron Job Examples](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)
 
-#### 21. service
+## service
 
 service命令用于运行System V init脚本，这些脚本一般位于/etc/init.d文件下，这个命令可以直接运行这个文件夹里面的脚本，而不用加上路径
 
@@ -437,7 +437,7 @@ $ service --status-all
 $ service ssh restart
 ```
 
-#### 22. ps
+## ps
 
 ps命令用于显示正在运行中的进程的信息，ps命令有很多选项，这里只列出了几个
 
@@ -453,7 +453,7 @@ $ ps -ef | more
 $ ps -efH | more
 ```
 
-#### 23. free
+## free
 
 这个命令用于显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存的情况
 
@@ -488,7 +488,7 @@ Swap:      4000176          0    4000176
 Total:     7566584    1592148    5974436
 ```
 
-#### 24. top
+## top
 
 top命令会显示当前系统中占用资源最多的一些进程（默认以CPU占用率排序）如果你想改变排序方式，可以在结果列表中点击O（大写字母O）会显示所有可用于排序的列，这个时候你就可以选择你想排序的列
 
@@ -510,7 +510,7 @@ $ top -u oracle
 
 更多示例：[Can You Top This? 15 Practical Linux Top Command Examples](http://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/)
 
-#### 25. df
+## df
 
 显示文件系统的磁盘使用情况，默认情况下`df -k` 将以字节为单位输出磁盘的使用量
 
@@ -543,7 +543,7 @@ Filesystem    Type   1K-blocks      Used Available Use% Mounted on
 /dev/sda2     ext4   120367992  50171596  64082060  44% /home
 ```
 
-#### 26. kill
+## kill
 
 kill用于终止一个进程。一般我们会先用`ps -ef`查找某个进程得到它的进程号，然后再使用`kill -9 进程号`终止该进程。你还可以使用killall、pkill、xkill来终止进程
 
@@ -556,7 +556,7 @@ $ kill -9 7243
 
 更多示例：[4 Ways to Kill a Process – kill, killall, pkill, xkill](http://www.thegeekstuff.com/2009/12/4-ways-to-kill-a-process-kill-killall-pkill-xkill/)
 
-#### 27. rm
+##  rm
 
 删除文件前先确认
 
@@ -576,7 +576,7 @@ $ rm -i file*
 $ rm -r example
 ```
 
-#### 28. cp
+## cp
 
 拷贝文件1到文件2，并保持文件的权限、属主和时间戳
 
@@ -590,7 +590,7 @@ $ cp -p file1 file2
 $ cp -i file1 file2
 ```
 
-#### 29. mv
+## mv
 
 将文件名file1重命名为file2，如果file2存在则提示是否覆盖
 
@@ -606,7 +606,7 @@ $ mv -i file1 file2
 $ mv -v file1 file2
 ```
 
-#### 30. cat
+## cat
 
 你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容
 
@@ -626,7 +626,7 @@ $ cat -n /etc/logrotate.conf
     6	}
 ```
 
-#### 31. mount
+## mount
 
 如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上
 
@@ -642,7 +642,7 @@ $ cat -n /etc/logrotate.conf
 /dev/sdb1 /u01 ext2 defaults 0 2
 ```
 
-#### 32. chmod
+## chmod
 
 chmod用于改变文件和目录的权限
 
@@ -666,7 +666,7 @@ $ chmod -R ug+rwx file.txt
 
 更多示例：[7 Chmod Command Examples for Beginners](http://www.thegeekstuff.com/2010/06/chmod-command-examples/)
 
-#### 33. chown
+## chown
 
 chown用于改变文件属主和属组
 
@@ -682,7 +682,7 @@ $ chown oracle:dba dbora.sh
 $ chown -R oracle:dba /home/oracle
 ```
 
-#### 34. passwd
+## passwd
 
 passwd用于在命令行修改密码，使用这个命令会要求你先输入旧密码，然后输入新密码
 
@@ -702,7 +702,7 @@ passwd还可以删除某个用户的密码，这个命令只有root用户才能�
 # passwd -d USERNAME
 ```
 
-#### 35. mkdir
+## mkdir
 
 在home目录下创建一个名为temp的目录
 
@@ -716,7 +716,7 @@ $ mkdir ~/temp
 $ mkdir -p dir1/dir2/dir3/dir4/
 ```
 
-#### 36. ifconfig
+## ifconfig
 
 ifconfig用于查看和配置Linux系统的网络接口
 
@@ -736,7 +736,7 @@ $ ifconfig eth0 down
 
 更多示例：[Ifconfig: 7 Examples To Configure Network Interface](http://www.thegeekstuff.com/2009/03/ifconfig-7-examples-to-configure-network-interface/)
 
-#### 37. uname
+## uname
 
 uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息
 
@@ -745,7 +745,7 @@ $ uname -a
 Linux john-laptop 2.6.32-24-generic #41-Ubuntu SMP Thu Aug 19 01:12:52 UTC 2010 i686 GNU/Linux
 ```
 
-#### 38. whereis
+## whereis
 
 当你不知道某个命令的位置时可以使用whereis命令，下面使用whereis查找ls的位置
 
@@ -761,7 +761,7 @@ $ whereis -u -B /tmp -f lsmk
 lsmk: /tmp/lsmk
 ```
 
-#### 39. whatis
+## whatis
 
 wathis显示某个命令的描述信息
 
@@ -773,7 +773,7 @@ $ whatis ifconfig
 ifconfig (8)         - configure a network interface
 ```
 
-#### 40. locate
+## locate
 
 locate命名可以显示某个指定文件（或一组文件）的路径，它会使用由updatedb创建的数据库
 
@@ -791,7 +791,7 @@ $ locate crontab
 /usr/share/vim/vim72/syntax/crontab.vim
 ```
 
-#### 41. man
+## man
 
 显示某个命令的man页面
 
@@ -826,7 +826,7 @@ crontab (5)          - tables for driving cron
 $ man 5 crontab
 ```
 
-#### 42. tail
+## tail
 
 tail命令默认显示文件最后的10行文本
 
@@ -848,7 +848,7 @@ $ tail -f log-file
 
 更多示例：[3 Methods To View tail -f output of Multiple Log Files in One Terminal](http://www.thegeekstuff.com/2009/09/multitail-to-view-tail-f-output-of-multiple-log-files-in-one-terminal/)
 
-#### 43. less
+## less
 
 这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用
 
@@ -865,7 +865,7 @@ CTRL+B – backward one window
 
 更多示例：[Unix Less Command: 10 Tips for Effective Navigation](http://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/)
 
-#### 44. su
+## su
 
 su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码
 
@@ -887,7 +887,7 @@ $ su - USERNAME
 $ su -s 'SHELLNAME' USERNAME
 ```
 
-#### 45. mysql
+## mysql
 
 mysql可能是Linux上使用最广泛的数据库，即使你没有在你的服务器上安装mysql，你也可以使用mysql客户端连接到远程的mysql服务器
 
@@ -905,7 +905,7 @@ $ mysql -u root -p
 
 你也可以在命令行中输入数据库密码，只需要在-p后面加上密码作为参数，可以直接写在p后面而不用加空格
 
-#### 46. yum
+##  yum
 
 使用yum安装apache
 
@@ -925,7 +925,7 @@ $ yum update httpd
 $ yum remove httpd
 ```
 
-#### 47. rpm
+## rpm
 
 使用rpm安装apache
 
@@ -947,7 +947,7 @@ $ yum remove httpd
 
 更多示例：[RPM Command: 15 Examples to Install, Uninstall, Upgrade, Query RPM Packages](http://www.thegeekstuff.com/2010/07/rpm-command-examples/)
 
-#### 48. ping
+## ping
 
 ping一个远程主机，只发5个数据包
 
@@ -957,7 +957,7 @@ $ ping -c 5 gmail.com
 
 更多示例：[Ping Tutorial: 15 Effective Ping Command Examples](http://www.thegeekstuff.com/2009/11/ping-tutorial-13-effective-ping-command-examples/)
 
-#### 49. date
+## date
 
 设置系统日期
 
@@ -973,7 +973,7 @@ $ ping -c 5 gmail.com
 # hwclock --systohc –utc
 ```
 
-#### 50. wget
+## wget
 
 使用wget从网上下载软件、音乐、视频
 

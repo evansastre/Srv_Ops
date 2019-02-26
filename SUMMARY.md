@@ -85,6 +85,7 @@
     * [System performance test](linux/linux-fundamental/performance/tsung.md)
     * [CPU&Memory](linux/linux-fundamental/performance/cpu-and-memory.md)
     * [Disk](linux/linux-fundamental/performance/disk.md)
+    * [strace](linux/linux-fundamental/performance/strace.md)
   * [QA](linux/linux-fundamental/qa.md)
   * [Directory](linux/linux-fundamental/directory.md)
   * [running level](linux/linux-fundamental/running-level.md)
