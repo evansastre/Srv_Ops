@@ -346,7 +346,7 @@ int createBroadcastReceiver(uint16_t port)
 关于广播和多播部分的实现很简单，都是基于UDP套接字。  
 
 
-## **三、**组播IP地址到底是谁的IP？？
+## **三、**组播IP地址到底是谁的IP？
 
 CTV source server \(Multicast Source IP\) = 1.1.1.1
 

@@ -38,6 +38,28 @@ Priority域，占3bits，表示报文的优先级，取值0到7，7为最高优�
 
 VLAN ID域，占12bit，用于标示VLAN的归属。
 
+\(1\).pvid是什么
+
+PVID英文解释为Port-base VLAN ID，是基于端口的VLAN ID，一个端口可以属于多个vlan，但是只能有一个PVID，收到一个不带tag头的数据包时，会打上PVID所表示的vlan号，视同该vlan的数据包处理，所以也有人说PVID就是某个端口默认的vlan ID号。
+
+作者：lanlicen 来源：CSDN 原文：[https://blog.csdn.net/lanlicen/article/details/6333245](https://blog.csdn.net/lanlicen/article/details/6333245) 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+注意：PVID并不是加在帧头的标记，而是端口的属性，用来标识端口接收到的未标记的帧。也就是说，当端口收到一个未标记的帧时，则把该帧转发到VID和本端口PVID相等的VLAN中去。
+
+\(2\).vid是什么
+
+VID（VLAN ID）是VLAN的标识，定义其中的端口可以接收发自这个VLAN的包；而PVID（Port VLAN ID）定义这个**untag端口**可以**转发**哪个VLAN的包。比如，当端口1同时属于VLAN1、VLAN2和VLAN3时，而它的PVID为1，那么端口1可以接收到VLAN1，2，3的数据，但发出的包只能发到VLAN1中。
+
+\(3\).vid和pvid的作用
+
+vid的作用在于当VLAN跨设备时（即switch1和switch2中都有VLAN2），各个设备需要和其他设备中的相同VLAN实现通信时，就必须在数据帧中加入vlan tag，来标示该数据帧应该被转发的vlan id。简而言之，vid是用在设备之间互联时用来决定一个二层帧属于哪个vlan的标记。
+
+pvid更多的时候是用于设备和计算机互联时，用来标示计算机发出的未携带TAG的数据帧属于哪个vlan。
+
+
+
+
+
 [**4 交换机接口出入数据处理过程**](https://link.jianshu.com?t=http://blog.csdn.net/jesseyoung/article/details/40047749)  
 
 
@@ -57,6 +79,16 @@ hybrid端口收报文：
 
 收到一个报文,判断是否有VLAN信息：如果没有则打上端口的PVID，并进行交换转发，如果有则判断该hybrid端口是否允许该VLAN的数据进入：如果可以则转发，否则丢弃。
 
+
+
+1、一个数据包要进入一个tagged端口，如果其原来是untagged，则给其打上为tag，号码为pvid，如果其已经为tagged则原样输入； 
+
+2、一个数据包要进入一个untagged端口，如果其原来是untagged，则给其打上tag，号码为pvid，如果其已经打上了tagged，则丢弃 该包；
+
+3、一个数据包要出一个tagged端口，如果其原来是untagged包，则给其打上tag,号码为pvid，如果其原来是tagged包，则原样输出；4、一个数据包要出一个untagged端口，如果其原来是untagged包，则原样输出，如果其原来是tagged包，则去掉其tag头部，变为untagged。
+
+
+
 **4.2 端口发送报文时的处理**
 
 ![](//upload-images.jianshu.io/upload_images/6105755-9bcb54ecf53948f9?imageMogr2/auto-orient/strip%7CimageView2/2/w/558/format/webp)
@@ -74,6 +106,8 @@ hybrid端口发报文：
 1、判断该VLAN在本端口的属性
 
 2、如果是untag则剥离VLAN信息，再发送，如果是tag则比较端口的PVID和将要发送报文的VLAN信息，如果两者相等则剥离VLAN信息，再发送，否则报文将携带原有的VLAN标记进行转发。  
+
+
   
 
 

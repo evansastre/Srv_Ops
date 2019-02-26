@@ -1,6 +1,6 @@
 # Performance
 
-![](../../.gitbook/assets/image.png)
+![](../../../.gitbook/assets/image.png)
 
 
 
