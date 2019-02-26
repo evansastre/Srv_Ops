@@ -227,3 +227,5 @@ open("/usr/lib/i686/libnss_files.so.2", O_RDONLY) = -1 ENOENT (No such file or d
 strace -f -o configure-strace.txt -e execve ./configure
 ```
 
+
+
