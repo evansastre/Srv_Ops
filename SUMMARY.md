@@ -134,3 +134,7 @@
   * [AD Database](windows/activity-directory/ad-database.md)
   * [Ports](windows/activity-directory/ports.md)
 
+## DevOps
+
+* [CI/CD](devops/ci-cd.md)
+
