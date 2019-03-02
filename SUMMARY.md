@@ -120,6 +120,7 @@
     * [Git](linux/open-source-application/version-control/git.md)
     * [SVN](linux/open-source-application/version-control/svn.md)
 * [Enterprise Application](linux/enterprise-application/README.md)
+  * [Ansible](linux/enterprise-application/ansible.md)
   * [Citrix](linux/enterprise-application/citrix.md)
   * [BlueKing](linux/enterprise-application/blueking/README.md)
     * [Architecture](linux/enterprise-application/blueking/architecture.md)
