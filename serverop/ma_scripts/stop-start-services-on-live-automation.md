@@ -4,9 +4,9 @@
 
 Use selenium to operate service management website.
 
-### Prepare: <a id="Stop/StartservicesonLiveautomation-Prepare:"></a>
+## Prepare:
 
-#### Install python support units on controller server <a id="Stop/StartservicesonLiveautomation-installpythonsupportunitsonsaltmasterserver"></a>
+### Install python support units on controller server
 
 \# install Python 2.7 and selenium
 
@@ -22,7 +22,7 @@ pip install -U selenium
 
 Set firewall rule on selenium server and PA to enable communication between controller server and selenium server.
 
-#### Install selenium and java support units on webadmin server \(QA:app1  Live:webadmin \) <a id="Stop/StartservicesonLiveautomation-installseleniumandjavasupportunitsonwebadminserver(QA:app1Live:webadmin)"></a>
+### Install selenium server, java, chrome support units on webadmin server \(QA:app1  Live:webadmin \)
 
 selenium-server:install JRE
 
@@ -41,7 +41,27 @@ pause >nul
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### ocuments to learn python and selenium <a id="Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium"></a>
+#### Another way: Use Docker to install selenium server <a id="Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium"></a>
+
+```text
+###server
+docker search selenium
+docker pull selenium/standalone-chrome
+docker run -d -p 4444:4444 --name selenium -it selenium/standalone-chrome
+
+###client, where you run python scripts
+docker run --name client --link selenium -it centos bash
+#in the client container
+yum install epel-release
+yum install python-pip
+pip install selenium
+#edit and run python script
+
+```
+
+####  <a id="Stop/StartservicesonLiveautomation-documentstolearnpythonandselenium"></a>
+
+### documents to learn python and selenium
 
 selenium:
 
@@ -53,7 +73,7 @@ python:
 
 [https://www.tutorialspoint.com/python/index.htm](https://www.tutorialspoint.com/python/index.htm)
 
-### Test on QA <a id="Stop/StartservicesonLiveautomation-TestonQA"></a>
+## Test on QA
 
 upload script to saltmaster
 
@@ -65,9 +85,9 @@ upload script to saltmaster
 4.all hostname, seq and list define  
 5.in main function, change all excute Seq
 
-#### tep to update stop&start python script <a id="Stop/StartservicesonLiveautomation-steptoupdatestop&amp;startpythonscript"></a>
+#### step to update stop&start python script <a id="Stop/StartservicesonLiveautomation-steptoupdatestop&amp;startpythonscript"></a>
 
-### 1.
+### 1.clean old version scripts
 
 ```bash
 cd /srv/salt/QA_script/
@@ -79,7 +99,7 @@ rm -f start_Service_Stage.pyc
 
 ### 2.upload script
 
-### 3.
+### 3.mv new script and chmod
 
 ```bash
 mv /home/huangsl/stop_Service_Stage.py /srv/salt/QA_script/
@@ -88,7 +108,7 @@ chmod +x stop_Service_Stage.py
 chmod +x start_Service_Stage.py
 ```
 
-### 4.
+### 4.compile
 
 ```text
 python -m compileall .
@@ -96,14 +116,14 @@ chmod +x stop_Service_Stage.pyc
 chmod +x start_Service_Stage.pyc
 ```
 
-### 5.
+### 5.rm .py
 
 ```bash
 rm -f stop_Service_Stage.py
 rm -f start_Service_Stage.py
 ```
 
-###  6.xcute
+###  6.execute
 
 adminweb:
 
