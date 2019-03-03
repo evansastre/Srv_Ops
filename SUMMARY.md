@@ -113,6 +113,7 @@
       * [Install](linux/open-source-application/container/docker/install.md)
       * [Run](linux/open-source-application/container/docker/run.md)
       * [dockerfile](linux/open-source-application/container/docker/dockerfile.md)
+      * [Docker Compose](linux/open-source-application/container/docker/docker-compose.md)
       * [Clean up docker on mac](linux/open-source-application/container/docker/clean-up-docker-on-mac.md)
   * [Cloud Foundry](linux/open-source-application/cloud-foundry.md)
   * [Storage](linux/open-source-application/storage.md)
