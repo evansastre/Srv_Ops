@@ -87,6 +87,7 @@
     * [tcpdump](linux/linux-fundamental/network/tcpdump.md)
   * [Kernel parameter tuning](linux/linux-fundamental/kernal-arguments.md)
   * [kernel compilation](linux/linux-fundamental/kernel-compilation.md)
+  * [Kernel Upgrade](linux/linux-fundamental/upgrade-kernel.md)
   * [Performance](linux/linux-fundamental/performance/README.md)
     * [Command for performance optimise](linux/linux-fundamental/performance/command-for-performance-optimise.md)
     * [System performance test](linux/linux-fundamental/performance/tsung.md)
