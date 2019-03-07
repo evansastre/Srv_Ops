@@ -54,6 +54,8 @@ systemctl start docker
 ```text
 groupadd docker
 usermod -aG docker $USER
+
+#sudo chmod 777 /var/run/docker.sock . 
 ```
 
 ## Test
