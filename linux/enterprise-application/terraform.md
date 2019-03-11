@@ -1,5 +1,7 @@
 # Terraform
 
+{% embed url="https://learn.hashicorp.com/terraform/getting-started/variables" %}
+
 
 
 Example of deploy multiple vms on vsphere
