@@ -57,3 +57,7 @@ apiVersion: apps/v1
 
 
 
+Operators
+
+[https://github.com/operator-framework/awesome-operators](https://github.com/operator-framework/awesome-operators)
+
