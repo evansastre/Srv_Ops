@@ -94,6 +94,7 @@ resource "vsphere_virtual_machine" "vm-web" {
   network_interface {
     #network_id   = "${data.vsphere_network.network.id}"
     #adapter_type = "${data.vsphere_virtual_machine.template.network_interface_types[0]}"
+    label = "${lookup(var.vmnetlabel, var.vmdomain)}"
     ipv4_address = "10.5.5.${10 + count.index}"
     ipv4_gateway = "10.5.5.1"
     ipv4_prefix_length = "24"
