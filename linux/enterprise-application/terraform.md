@@ -2,6 +2,8 @@
 
 {% embed url="https://learn.hashicorp.com/terraform/getting-started/variables" %}
 
+{% embed url="https://www.terraform.io/docs/providers/index.html" %}
+
 
 
 Example of deploy multiple vms on vsphere
