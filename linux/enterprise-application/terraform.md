@@ -2,6 +2,10 @@
 
 
 
+Example of deploy multiple vms on vsphere
+
+[https://github.com/ewypych/terraform-vsphere-multiple-vm](https://github.com/ewypych/terraform-vsphere-multiple-vm)
+
 {% code-tabs %}
 {% code-tabs-item title="main.tf" %}
 ```text
