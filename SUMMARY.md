@@ -110,6 +110,8 @@
   * [Rsync](linux/linux-fundamental/rsync.md)
 * [Open Source Application](linux/open-source-application/README.md)
   * [Virtualization](linux/open-source-application/virtualization/README.md)
+    * [VMware](linux/open-source-application/virtualization/vmware/README.md)
+      * [Esxi- move management to another vSwitch](linux/open-source-application/virtualization/vmware/esxi-move-management-to-another-vswitch.md)
     * [Vagrant](linux/open-source-application/virtualization/vagrant.md)
     * [Vagrantfile](linux/open-source-application/virtualization/vagrantfile.md)
   * [Kubernetes](linux/open-source-application/kubernetes.md)
