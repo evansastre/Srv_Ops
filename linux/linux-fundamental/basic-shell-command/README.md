@@ -95,6 +95,9 @@ find -iname "MyProgram.c" -exec md5sum {} \;
 
 #Find all empty files in the home directory
 find ~ -empty
+
+-mtime days   #Finds files that are days old
+-size num  .    
 ```
 
 ## ssh

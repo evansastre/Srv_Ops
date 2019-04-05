@@ -20,6 +20,10 @@ for NewServerPatch in ${NewServerPatch_arr[@]; do
     echo $NewServerPatch
     rm -rf '/home/release/'$NewServerPatch
     sudo /usr/local/bin/unrar x -o+ '/home/release/'$NewServerPatch.rar /home/release
+    if [[ ! -d '/home/release/'$NewServerPatch ]]; then
+        echo "Pls check the package name!!!"
+        exit 1
+    fi 
     mv 'home/release'$NewServerPatch'Service' '/home/release/'$NewServerPatch'/service'
     sudo rsync -av '/home/release/'$NewServerPatch'/'  /home/release/newserverpatch
  

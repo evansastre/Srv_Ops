@@ -108,6 +108,7 @@
   * [Keygen](linux/linux-fundamental/keygen.md)
   * [Screen](linux/linux-fundamental/screen.md)
   * [Rsync](linux/linux-fundamental/rsync.md)
+  * [Systemd](linux/linux-fundamental/systemd.md)
 * [Open Source Application](linux/open-source-application/README.md)
   * [Virtualization](linux/open-source-application/virtualization/README.md)
     * [VMware](linux/open-source-application/virtualization/vmware/README.md)
