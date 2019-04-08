@@ -261,15 +261,227 @@ Correspondingly, the systemctl disable command is used to revoke the symbolic li
 $ sudo systemctl disable clamd@scan.service
 ```
 
+The suffix name of the configuration file is the type of the unit, such as sshd.socket. If omitted, Systemd defaults to .service, so sshd is interpreted as sshd.service.
 
+### 5.2 Status of the configuration file
 
+```text
+# List all configuration files
+$ systemctl list-unit-files
 
+# List the configuration files of the specified type
+$ systemctl list-unit-files --type=service
+```
 
+This list shows the status of each profile, for a total of four.
 
+* enabled：Launch link has been established
+* disabled：Did not create a launch link
+* static：This configuration file does not have an \[Install\] section \(cannot be executed\) and can only be used as a dependency on other configuration files.
+* masked：The configuration file is forbidden to create a launch link
 
+Note that it is not clear from the status of the configuration file that the Unit is running. This must be done with the systemctl status command mentioned earlier.
 
+```text
+$ systemctl status bluetooth.service
+```
 
+Once the configuration file is modified, let SystemD reload the configuration file and restart it, otherwise the modification will not take effect.
 
+```text
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart httpd.service
+```
+
+### 5.3 Format of the configuration file
+
+```text
+$ systemctl cat atd.service
+
+[Unit]
+Description=ATD daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/atd
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 5.4 Blocks of configuration files
+
+The \[Unit\] block is usually the first block of the configuration file that defines the metadata for the Unit and the relationship to other Units. Its main fields are as follows.
+
+* `Description`：Short description
+* `Documentation`：Document Address
+* `Requires`：Other Units that the current Unit depends on. If they are not running, the current Unit will fail to start.
+* `Wants`：Other Units that match the current Unit, if they are not running, the current Unit will not start failing.
+* `BindsTo`：Similar to Requires, if the Unit specified by it exits, it will cause the current Unit to stop running.
+* `Before`：If the Unit specified by this field is also to be started, it must be started after the current Unit.
+* `After`：If the Unit specified by this field is also to be started, it must be started before the current Unit.
+* `Conflicts`：The Unit specified here cannot be run simultaneously with the current Unit.
+* `Condition`：The condition that the current Unit must be run, otherwise it will not run.
+* `Assert`：The condition that the current Unit must be run, otherwise it will fail to start.
+
+\[Install\] is usually the last block of the configuration file, used to define how to start, and whether to boot. Its main fields are as follows.
+
+* WantedBy: Its value is one or more Targets. The current Unit activation \(enable\) symbolic link will be placed in the /etc/systemd/system directory under the subdirectory of the Target name + .wants suffix. 
+* RequiredBy: Its value is one or more Targets. When the current Unit is activated, the symbolic link will be placed in the /etc/systemd/system directory under the subdirectory of the Target name + .required suffix. 
+* Alias: Alias that the current Unit can be used to start 
+* Also: Other Units that will be activated at the same time when Unit is activated \(enable\)
+
+The \[Service\] block is used for the configuration of the Service. Only the Unit of the Service type has this block. Its main fields are as follows.
+
+* Type: Defines the behavior of the process at startup. It has the following values. 
+* Type=simple: default value, execute the command specified by ExecStart, start the main process 
+* Type=forking: Create a child process from the parent process in fork mode. After the creation, the parent process will immediately exit. 
+* Type=oneshot: One-time process, Systemd will wait for the current service to exit, and then continue to execute 
+* Type=dbus: The current service is started by D-Bus 
+* Type=notify: After the current service is started, Systemd will be notified, and then continue to execute. 
+* Type=idle: The current service will run if other tasks are executed. ExecStart: Command to start the current service 
+* ExecStartPre: Command executed before starting the current service 
+* ExecStartPost: Command executed after starting the current service ExecReload: Command executed when restarting the current service 
+* ExecStop: Command executed when the current service is stopped ExecStopPost: Stops commands executed after their service 
+* RestartSec: Number of seconds to automatically restart the current service interval 
+* Restart: defines what circumstances Systemd will automatically restart the current service, possible values ​​include always \(always restart\), on-success, on-failure, on-abnormal, on-abort, on-watchdog 
+* TimeoutSec: Defines the number of seconds Systemd waits before stopping the current service Environment: Specify environment variables
+
+## 6. Target
+
+When you start your computer, you need to start a large number of Units. If you start each time, it is obviously inconvenient to write out which Units are needed for this startup. The solution for Systemd is Target.
+
+Simply put, Target is a Unit group with many related Units. When a Target is started, Systemd will start all the Units inside. In this sense, the concept of Target is similar to a "state point". Starting a Target is like starting up to a certain state.
+
+In the traditional init startup mode, there is a concept of RunLevel, which is similar to the role of Target. The difference is that RunLevel is mutually exclusive, it is not possible to start multiple RunLevels at the same time, but multiple Targets can be started at the same time.
+
+```text
+# View all Targets of the current system
+$ systemctl list-unit-files --type=target
+
+# View all Units included in a Target
+$ systemctl list-dependencies multi-user.target
+
+# View the default target at startup
+$ systemctl get-default
+
+# Set the default target at startup
+$ sudo systemctl set-default multi-user.target
+
+# When switching Target, the process started by the previous Target is not closed by default.
+# systemctl isolate command to change this behavior,
+# Close all processes in the previous Target that do not belong to the next Target.
+$ sudo systemctl isolate multi-user.target
+```
+
+The correspondence between Target and traditional RunLevel is as follows.
+
+```text
+Traditional runlevel      New target name     Symbolically linked to...
+
+Runlevel 0           |    runlevel0.target -> poweroff.target
+Runlevel 1           |    runlevel1.target -> rescue.target
+Runlevel 2           |    runlevel2.target -> multi-user.target
+Runlevel 3           |    runlevel3.target -> multi-user.target
+Runlevel 4           |    runlevel4.target -> multi-user.target
+Runlevel 5           |    runlevel5.target -> graphical.target
+Runlevel 6           |    runlevel6.target -> reboot.target
+```
+
+The main differences between it and the init process are as follows.）配置文件的位置，以前init进程的配置文件是/etc/inittab，各种服务的配置文件存放在/etc/sysconfig目录。现在的配置文件主要存放在/lib/systemd目录，在/etc/systemd目录里面的修改可以覆盖原始设置。
+
+1.  The default RunLevel \(set in the /etc/inittab file\) is now replaced by the default Target, located in /etc/systemd/system/default.target, usually symbolically linked to graphical.target \(graphical interface\) or multi-user .target \(multi-user command line\).
+2. The location of the startup script, previously in the /etc/init.d directory, symbolically linked to different RunLevel directories \(such as /etc/rc3.d, /etc/rc5.d, etc.\), now stored in /lib/ Systemd/system and /etc/systemd/system directories.
+3. The location of the configuration file. The configuration file of the previous init process is /etc/inittab. The configuration files of various services are stored in the /etc/sysconfig directory. The current configuration file is mainly stored in the /lib/systemd directory, and the changes in the /etc/systemd directory can override the original settings.
+
+## 7. log management
+
+Systemd centrally manages the startup logs for all Units. The advantage is that you can view all logs \(kernel logs and application logs\) with just one command of journalctl. The configuration file for the log is /etc/systemd/journald.conf.
+
+Journalctl is powerful and has a lot of usage.
+
+```text
+# View all logs (by default, only the logs that are started this time)
+$ sudo journalctl
+
+# View kernel logs (do not show application logs)
+$ sudo journalctl -k
+
+# View the log of the system startup this time.
+$ sudo journalctl -b
+$ sudo journalctl -b -0
+
+# View the log that was last started (you need to change the settings)
+$ sudo journalctl -b -1
+
+# View logs for a specified time
+$ sudo journalctl --since="2012-10-30 18:17:16"
+$ sudo journalctl --since "20 min ago"
+$ sudo journalctl --since yesterday
+$ sudo journalctl --since "2015-01-10" --until "2015-01-11 03:00"
+$ sudo journalctl --since 09:00 --until "1 hour ago"
+
+# Display the latest 10 lines of logs at the end
+$ sudo journalctl -n
+
+# a log showing the specified number of lines at the end
+$ sudo journalctl -n 20
+
+# Real-time scrolling to display the latest logs
+$ sudo journalctl -f
+
+# View logs for a specified service
+$ sudo journalctl /usr/lib/systemd/systemd
+
+# View the log of the specified process
+$ sudo journalctl _PID=1
+
+# View the log of a script for a path
+$ sudo journalctl /usr/bin/bash
+
+# View the log of the specified user
+$ sudo journalctl _UID=33 --since today
+
+# View the log of a Unit
+$ sudo journalctl -u nginx.service
+$ sudo journalctl -u nginx.service --since today
+
+# Scrolls the latest log of a Unit in real time
+$ sudo journalctl -u nginx.service -f
+
+# Combine logs showing multiple Units
+$ journalctl -u nginx.service -u php-fpm.service --since today
+
+# View logs of the specified priority level (and above), a total of 8 levels
+# 0: emerg
+# 1: alert
+# 2: crit
+# 3: err
+# 4: warning
+# 5: notice
+# 6: info
+# 7: debug
+$ sudo journalctl -p err -b
+
+# Log default page output, --no-pager changed to normal standard output
+$ sudo journalctl --no-pager
+
+# Output in JSON format (single line)
+$ sudo journalctl -b -u nginx.service -o json
+
+# Output in JSON format (multiple lines) for better readability
+$ sudo journalctl -b -u nginx.serviceqq
+ -o json-pretty
+
+# Show the hard disk space occupied by the log
+$ sudo journalctl --disk-usage
+
+# Specify the maximum space occupied by the log file
+$ sudo journalctl --vacuum-size=1G
+
+# Specify how long the log file is saved
+$ sudo journalctl --vacuum-time=1years
+```
 
 
 

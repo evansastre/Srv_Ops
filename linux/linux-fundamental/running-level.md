@@ -31,7 +31,19 @@ chkconfig --level 35 nginx on
 
 
 
+Target vs RunLevel
 
+```text
+Traditional runlevel      New target name     Symbolically linked to...
+
+Runlevel 0           |    runlevel0.target -> poweroff.target
+Runlevel 1           |    runlevel1.target -> rescue.target
+Runlevel 2           |    runlevel2.target -> multi-user.target
+Runlevel 3           |    runlevel3.target -> multi-user.target
+Runlevel 4           |    runlevel4.target -> multi-user.target
+Runlevel 5           |    runlevel5.target -> graphical.target
+Runlevel 6           |    runlevel6.target -> reboot.target
+```
 
 
 
