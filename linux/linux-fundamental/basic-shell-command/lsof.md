@@ -24,3 +24,11 @@ lsof +D /usr/local/ 同上，但是会搜索目录下的目录，时间较长
 lsof -d 4 显示使用[fd](https://www.baidu.com/s?wd=fd&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd)为4的进程  
 lsof -i \[i\] 用以显示符合条件的进程情况
 
+lsof -t 显示pid
+
+Close process which is using port 8000
+
+```text
+lsof -t -i tcp:8000 | xargs kill -9
+```
+
