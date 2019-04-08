@@ -122,7 +122,7 @@ $ loginctl list-sessions
 $ loginctl list-users
 
 # List information showing the specified user
-$ loginctl show-user ruanyf
+$ loginctl show-user evans
 ```
 
 ## 4. Unit
@@ -388,7 +388,7 @@ Runlevel 5           |    runlevel5.target -> graphical.target
 Runlevel 6           |    runlevel6.target -> reboot.target
 ```
 
-The main differences between it and the init process are as follows.）配置文件的位置，以前init进程的配置文件是/etc/inittab，各种服务的配置文件存放在/etc/sysconfig目录。现在的配置文件主要存放在/lib/systemd目录，在/etc/systemd目录里面的修改可以覆盖原始设置。
+The main differences between it and the init process are as follows.\) The location of the configuration file, the configuration file of the previous init process is /etc/inittab, and the configuration files of various services are stored in the /etc/sysconfig directory. The current configuration file is mainly stored in the /lib/systemd directory, and the changes in the /etc/systemd directory can override the original settings.
 
 1.  The default RunLevel \(set in the /etc/inittab file\) is now replaced by the default Target, located in /etc/systemd/system/default.target, usually symbolically linked to graphical.target \(graphical interface\) or multi-user .target \(multi-user command line\).
 2. The location of the startup script, previously in the /etc/init.d directory, symbolically linked to different RunLevel directories \(such as /etc/rc3.d, /etc/rc5.d, etc.\), now stored in /lib/ Systemd/system and /etc/systemd/system directories.
