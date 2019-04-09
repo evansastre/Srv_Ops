@@ -89,6 +89,7 @@
   * [kernel compilation](linux/linux-fundamental/kernel-compilation.md)
   * [Kernel Upgrade](linux/linux-fundamental/upgrade-kernel.md)
   * [Performance](linux/linux-fundamental/performance/README.md)
+    * [Links](linux/linux-fundamental/performance/links.md)
     * [Command for performance optimise](linux/linux-fundamental/performance/command-for-performance-optimise.md)
     * [System performance test](linux/linux-fundamental/performance/tsung.md)
     * [CPU&Memory](linux/linux-fundamental/performance/cpu-and-memory.md)
