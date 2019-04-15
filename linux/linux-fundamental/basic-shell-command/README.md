@@ -96,8 +96,27 @@ find -iname "MyProgram.c" -exec md5sum {} \;
 #Find all empty files in the home directory
 find ~ -empty
 
--mtime days   #Finds files that are days old
--size num  .    
+#-mtime days   #Finds files that are days old
+find . -mtime +10 -mtime -13
+
+#-size num  .    
+find .   -size +1M
+
+#-type d    |  -type f
+#-newer
+find . -type d  -newer file.txt
+```
+
+## locate
+
+* Lists files that match pattern. 
+* Faster than the find command. 
+* Queries an index. 
+* Results are not in real time. 
+* May not be enabled on all systems.
+
+```text
+
 ```
 
 ## ssh
@@ -220,6 +239,7 @@ $ sort -r names.txt
 
 ```text
 $ sort -t: -k 3n /etc/passwd | more
+#-u unique
 ```
 
 ## export
@@ -282,6 +302,12 @@ $ ls -F
 ```
 
 更多示例：[Unix LS Command: 15 Practical Examples](http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/)
+
+## du 
+
+```text
+du [-b|-k|-m] #show size in b k m 
+```
 
 ##  pwd
 
@@ -591,6 +617,13 @@ $ cp -p file1 file2
 
 ```text
 $ cp -i file1 file2
+```
+
+```text
+#copy file1 file2 to dir1
+cp file1 file2 dir1
+#copy dir1 dir2 to dir3
+cp -r dir1 dir2 dir3
 ```
 
 ## mv
