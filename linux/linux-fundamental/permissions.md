@@ -53,3 +53,12 @@ chmod u=7,g=5,o=0    filename
 
 ```
 
+Umask
+
+```text
+default
+directory 777 
+file      755
+umask     0022
+```
+
