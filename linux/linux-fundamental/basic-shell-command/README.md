@@ -1,22 +1,5 @@
 # Basic Shell Command
 
-## grep
-
-```text
-$ grep -i "the" demo_file   
-$ grep -A 3 -i "example" demo_text
-$ grep -r "ramesh" *
-
-#-i ignore case
-#-c  count
-#-n   precede output with line numbers
-#-v   invert match. Print lines that don't match.
-#-A [n]  after n lines 
-#-B [n]  before nlines
-
-
-```
-
 ## ssh
 
 登录到远程主机
@@ -127,27 +110,7 @@ $ shutdown -r now
 $ shutdown -Fr now
 ```
 
-##  ftp
-
-ftp命令和sftp命令的用法基本相似连接ftp服务器并下载多个文件
-
-```text
-$ ftp IP/hostname
-ftp> mget *.html
-```
-
-显示远程主机上文件列表
-
-```text
-ftp> mls *.html -
-/ftptest/features.html
-/ftptest/index.html
-/ftptest/othertools.html
-/ftptest/samplereport.html
-/ftptest/usage.html
-```
-
-更多示例：[FTP and SFTP Beginners Guide with 10 Examples](http://www.thegeekstuff.com/2010/06/ftp-sftp-tutorial/)
+##  
 
 ## crontab
 
@@ -304,42 +267,7 @@ $ rm -i file*
 $ rm -r example
 ```
 
-## cp
 
-拷贝文件1到文件2，并保持文件的权限、属主和时间戳
-
-```text
-$ cp -p file1 file2
-```
-
-拷贝file1到file2，如果file2存在会提示是否覆盖
-
-```text
-$ cp -i file1 file2
-```
-
-```text
-#copy file1 file2 to dir1
-cp file1 file2 dir1
-#copy dir1 dir2 to dir3
-cp -r dir1 dir2 dir3
-```
-
-## mv
-
-将文件名file1重命名为file2，如果file2存在则提示是否覆盖
-
-```text
-$ mv -i file1 file2
-```
-
-注意如果使用-f选项则不会进行提示
-
--v会输出重命名的过程，当文件名中包含通配符时，这个选项会非常方便
-
-```text
-$ mv -v file1 file2
-```
 
 ## cat
 

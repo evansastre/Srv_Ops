@@ -1,4 +1,4 @@
-# cat head/tail more/less
+# cat & head/tail & more/less
 
 ```text
 #cat    :   show whole content

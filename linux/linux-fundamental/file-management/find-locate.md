@@ -1,4 +1,4 @@
-# find locate
+# find & locate
 
 ## find 
 
