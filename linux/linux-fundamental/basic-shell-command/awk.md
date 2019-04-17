@@ -1,5 +1,29 @@
 # awk
 
+## awk
+
+删除重复行
+
+```text
+$ awk '!($0 in array) { array[$0]; print}' temp
+```
+
+打印/etc/passwd中所有包含同样的uid和gid的行
+
+```text
+$ awk -F ':' '$3=$4' /etc/passwd
+```
+
+打印文件中的指定部分的字段
+
+```text
+$ awk '{print $2,$5;}' employee.txt
+```
+
+更多示例：[Powerful Awk Built-in Variables – FS, OFS, RS, ORS, NR, NF, FILENAME, FNR](http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/)
+
+
+
 AWK是一种处理文本文件的语言，是一个强大的文本分析工具。
 
 之所以叫AWK是因为其取了三位创始人 Alfred Aho，Peter Weinberger, 和 Brian Kernighan 的 Family Name 的首字符。

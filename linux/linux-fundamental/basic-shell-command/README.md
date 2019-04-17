@@ -1,121 +1,19 @@
 # Basic Shell Command
 
-## ls
-
-```bash
-# ~
-#reverse cat
-tac
-
-#show command which document include "calendar" 
-man -k calendar
-
-#cd previous path
-cd -             
-
-#show previous path  
-echo $OLDPWD       
-
-#show types of files
-ls -F
-# / Directory
-# @ Link
-# * Executable
-
-#list files by time 
-ls -t 
-#Reverse order
-ls -r
-#long listing including all files reverse sorted by time
-ls -latr
-
-#list files recursively
-ls -R
-#list directories only
-tree -d 
-#colorize output
-tree -C
-
-#list directory 
-ls -d [dirname]
-
-
-```
-
-## tar
-
-```text
-#create
-tar cvf archive_name.tar dirname/
-#estimates the tar file size ( in KB ) before you create the tar file.
-$ tar -cf - /directory/to/archive/ | wc -c
-20480
-
-#extract
-tar xvf archive_name.tar  [destPath1] [destPath2]
-#extract archives using regular expression
-tar xvf archive_file.tar --wildcards '*.pl'
-#Adding a file or directory to an existing archive, 
-#Note: You cannot add file or directory to a compressed archive, for instance '.tgz'
-tar rvf archive_name.tar newfileOrnewdir
-
-#show
-tar tvf archive_name.tar 
-less archive_name.tar 
-
-
-
-#c – create a new archive
-#v – verbosely list files which are processed.
-#f – following is the archive file name
-#z – filter the archive through gzip
-#j – filter the archive through bzip2
-#–wildcards *.pl – files with pl extension
-#r - Adding a file or directory to an existing archive 
--W Verify files available in tar 
-```
-
 ## grep
 
 ```text
-$ grep -i "the" demo_file
+$ grep -i "the" demo_file   
 $ grep -A 3 -i "example" demo_text
 $ grep -r "ramesh" *
 
-```
+#-i ignore case
+#-c  count
+#-n   precede output with line numbers
+#-v   invert match. Print lines that don't match.
+#-A [n]  after n lines 
+#-B [n]  before nlines
 
-## find 
-
-```text
-#Find the file with the specified file name (not case sensitive)
-find -iname "MyProgram.c" 
-
-#Execute a command on the found file
-find -iname "MyProgram.c" -exec md5sum {} \; 
-
-#Find all empty files in the home directory
-find ~ -empty
-
-#-mtime days   #Finds files that are days old
-find . -mtime +10 -mtime -13
-
-#-size num  .    
-find .   -size +1M
-
-#-type d    |  -type f
-#-newer
-find . -type d  -newer file.txt
-```
-
-## locate
-
-* Lists files that match pattern. 
-* Faster than the find command. 
-* Queries an index. 
-* Results are not in real time. 
-* May not be enabled on all systems.
-
-```text
 
 ```
 
@@ -140,86 +38,6 @@ $ ssh -V
 ```
 
 更多示例：[Basic Linux SSH Client Commands](http://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
-
-## sed
-
-当你将Dos系统中的文件复制到Unix/Linux后，这个文件每行都会以\r\n结尾，sed可以轻易将其转换为Unix格式的文件，使用\n结尾的文件
-
-```text
-$ sed 's/.$//' filename
-```
-
-反转文件内容并输出
-
-```text
-$ sed -n '1!G; h; p' filename
-```
-
-为非空行添加行号
-
-```text
-$ sed '/./=' thegeekstuff.txt | sed 'N; s/\n/ /'
-```
-
-s
-
-```text
-sed -r 's/(^[^#])/#&/' /path/to
-```
-
-更多示例：[Advanced Sed Substitution Examples](http://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/)
-
-## awk
-
-删除重复行
-
-```text
-$ awk '!($0 in array) { array[$0]; print}' temp
-```
-
-打印/etc/passwd中所有包含同样的uid和gid的行
-
-```text
-$ awk -F ':' '$3=$4' /etc/passwd
-```
-
-打印文件中的指定部分的字段
-
-```text
-$ awk '{print $2,$5;}' employee.txt
-```
-
-更多示例：[Powerful Awk Built-in Variables – FS, OFS, RS, ORS, NR, NF, FILENAME, FNR](http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/)
-
-## vim
-
-打开文件并跳到第10行
-
-```text
-$ vim +10 filename.txt
-```
-
-打开文件跳到第一个匹配的行
-
-```text
-$ vim +/search-term filename.txt
-```
-
-以只读模式打开文件
-
-```text
-$ vim -R /etc/passwd
-```
-
-更多示例：[How To Record and Play in Vim Editor](http://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/)
-
-## diff
-
-比较的时候忽略空白符
-
-```text
-$ diff -w name_list.txt name_list_new.txt
-```
 
 ## sort
 
@@ -260,54 +78,14 @@ declare -x ORACLE_TERM="xterm"
 $ export ORACLE_HOME=/u01/app/oracle/product/10.2.0
 ```
 
-##  xargs
-
-将所有图片文件拷贝到外部驱动器
-
-```text
-$ ls *.jpg | xargs -n1 -i cp {} /external-hard-drive/directory
-```
-
-将系统中所有jpd文件压缩打包
-
-```text
-$ find / -name *.jpg -type f -print | xargs tar -cvzf images.tar.gz
-```
-
-下载文件中列出的所有url对应的页面
-
-```text
-$ cat url-list.txt | xargs wget –c
-```
-
-## ls
-
-以易读的方式显示文件大小\(显示为MB,GB...\)
-
-```text
-$ ls -lh
--rw-r----- 1 ramesh team-dev 8.9M Jun 12 15:27 arch-linux.txt.gz
-```
-
-以最后修改时间升序列出文件
-
-```text
-$ ls -ltr
-```
-
-在文件名后面显示文件类型
-
-```text
-$ ls -F
-```
-
-更多示例：[Unix LS Command: 15 Practical Examples](http://www.thegeekstuff.com/2009/07/linux-ls-command-examples/)
-
 ## du 
 
 ```text
 du [-b|-k|-m] #show size in b k m 
+du -h -a #show all& human can read
 ```
+
+
 
 ##  pwd
 
@@ -321,64 +99,7 @@ du [-b|-k|-m] #show size in b k m
 
 更多示例：[6 Awesome Linux cd command Hacks](http://www.thegeekstuff.com/2008/10/6-awesome-linux-cd-command-hacks-productivity-tip3-for-geeks/)
 
-## gzip
 
-创建一个\*.gz的压缩文件
-
-```text
-$ gzip test.txt
-```
-
-解压\*.gz文件
-
-```text
-$ gzip -d test.txt.gz
-```
-
-显示压缩的比率
-
-```text
-$ gzip -l *.gz
-     compressed        uncompressed  ratio uncompressed_name
-          23709               97975  75.8% asp-patch-rpms.txt
-```
-
-## bzip2
-
-创建\*.bz2压缩文件
-
-```text
-$ bzip2 test.txt
-```
-
-解压\*.bz2文件
-
-```text
-bzip2 -d test.txt.bz2
-```
-
-更多示例：[BZ is Eazy! bzip2, bzgrep, bzcmp, bzdiff, bzcat, bzless, bzmore examples](http://www.thegeekstuff.com/2010/10/bzcommand-examples/)
-
-## uzip
-
-解压\*.zip文件
-
-```text
-$ unzip test.zip
-```
-
-查看\*.zip文件的内容
-
-```text
-$ unzip -l jasper.zip
-Archive:  jasper.zip
-Length     Date   Time    Name
---------    ----   ----    ----
-40995  11-30-98 23:50   META-INF/MANIFEST.MF
-32169  08-25-98 21:07   classes_
-15964  08-25-98 21:07   classes_names
-10542  08-25-98 21:07   classes_ncomp
-```
 
 ## shutdown
 
@@ -443,28 +164,6 @@ $ crontab -u john -l
 ```
 
 更多示例：[Linux Crontab: 15 Awesome Cron Job Examples](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)
-
-## service
-
-service命令用于运行System V init脚本，这些脚本一般位于/etc/init.d文件下，这个命令可以直接运行这个文件夹里面的脚本，而不用加上路径
-
-查看服务状态
-
-```text
-$ service ssh status
-```
-
-查看所有服务状态
-
-```text
-$ service --status-all
-```
-
-重启服务
-
-```text
-$ service ssh restart
-```
 
 ## ps
 
@@ -807,24 +506,6 @@ ls		(1)  - list directory contents
 
 $ whatis ifconfig
 ifconfig (8)         - configure a network interface
-```
-
-## locate
-
-locate命名可以显示某个指定文件（或一组文件）的路径，它会使用由updatedb创建的数据库
-
-下面的命令会显示系统中所有包含crontab字符串的文件
-
-```text
-$ locate crontab
-/etc/anacrontab
-/etc/crontab
-/usr/bin/crontab
-/usr/share/doc/cron/examples/crontab2english.pl.gz
-/usr/share/man/man1/crontab.1.gz
-/usr/share/man/man5/anacrontab.5.gz
-/usr/share/man/man5/crontab.5.gz
-/usr/share/vim/vim72/syntax/crontab.vim
 ```
 
 ## man
