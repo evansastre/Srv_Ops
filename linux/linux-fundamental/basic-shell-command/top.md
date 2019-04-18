@@ -26,6 +26,15 @@ $ top -u oracle
 
 A strong tool similart to top
 
+## pstree
+
+```text
+yum install psmisc -y
+pstree 
+pstree  -up     #show all tree
+
+```
+
 ## iotop
 
 show interactive io - disk
