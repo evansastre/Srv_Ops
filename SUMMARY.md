@@ -128,6 +128,7 @@
     * [Environment Variables](linux/linux-fundamental/basic-shell-command/environment-variables.md)
     * [Process and Job Control](linux/linux-fundamental/basic-shell-command/process-and-job-control.md)
     * [Cron](linux/linux-fundamental/basic-shell-command/cron.md)
+    * [Switch User and running commands as others](linux/linux-fundamental/basic-shell-command/switch-user-and-running-commands-as-others.md)
   * [Permissions](linux/linux-fundamental/permissions.md)
   * [Keygen](linux/linux-fundamental/keygen.md)
   * [Screen](linux/linux-fundamental/screen.md)
