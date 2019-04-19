@@ -130,6 +130,7 @@
     * [Cron](linux/linux-fundamental/basic-shell-command/cron.md)
     * [Switch User and running commands as others](linux/linux-fundamental/basic-shell-command/switch-user-and-running-commands-as-others.md)
     * [shell history and Tab cpmpletion](linux/linux-fundamental/basic-shell-command/shell-history-and-tab-cpmpletion.md)
+    * [Installing software](linux/linux-fundamental/basic-shell-command/installing-software.md)
   * [Permissions](linux/linux-fundamental/permissions.md)
   * [Keygen](linux/linux-fundamental/keygen.md)
   * [Screen](linux/linux-fundamental/screen.md)
