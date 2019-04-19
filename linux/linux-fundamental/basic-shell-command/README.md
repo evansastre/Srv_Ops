@@ -1,5 +1,9 @@
 # Basic Shell Command
 
+## Resource 
+
+[https://www.linuxtrainingacademy.com/](https://www.linuxtrainingacademy.com/)
+
 ## ssh
 
 登录到远程主机
