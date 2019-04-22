@@ -4,6 +4,8 @@
 # save
 $ curl http://www.linuxidc.com > page.html
 $ curl -o page.html http://www.linuxidc.com
+$ curl -O http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG
+#-O can automatically save to local according to the file name on the server
 
 # The proxy server used and its port: -x
 $ curl -x 123.45.67.89:1080 -o page.html http://www.linuxidc.com
