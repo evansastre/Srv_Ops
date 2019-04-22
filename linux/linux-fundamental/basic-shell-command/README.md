@@ -68,59 +68,7 @@ $ shutdown -r now
 $ shutdown -Fr now
 ```
 
-## 
 
-## free
-
-这个命令用于显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存的情况
-
-默认情况下free会以字节为单位输出内存的使用量
-
-```text
-$ free
-             total       used       free     shared    buffers     cached
-Mem:       3566408    1580220    1986188          0     203988     902960
--/+ buffers/cache:     473272    3093136
-Swap:      4000176          0    4000176
-```
-
-如果你想以其他单位输出内存的使用量，需要加一个选项，-g为GB，-m为MB，-k为KB，-b为字节
-
-```text
-$ free -g
-             total       used       free     shared    buffers     cached
-Mem:             3          1          1          0          0          0
--/+ buffers/cache:          0          2
-Swap:            3          0          3
-```
-
-如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行
-
-```text
-ramesh@ramesh-laptop:~$ free -t
-             total       used       free     shared    buffers     cached
-Mem:       3566408    1592148    1974260          0     204260     912556
--/+ buffers/cache:     475332    3091076
-Swap:      4000176          0    4000176
-Total:     7566584    1592148    5974436
-```
-
-
-
-## 
-
-## kill
-
-kill用于终止一个进程。一般我们会先用`ps -ef`查找某个进程得到它的进程号，然后再使用`kill -9 进程号`终止该进程。你还可以使用killall、pkill、xkill来终止进程
-
-```text
-$ ps -ef | grep vim
-ramesh    7243  7222  9 22:43 pts/2    00:00:00 vim
-
-$ kill -9 7243
-```
-
-更多示例：[4 Ways to Kill a Process – kill, killall, pkill, xkill](http://www.thegeekstuff.com/2009/12/4-ways-to-kill-a-process-kill-killall-pkill-xkill/)
 
 ##  rm
 
@@ -143,22 +91,6 @@ $ rm -r example
 ```
 
 
-
-## mount
-
-如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上
-
-```text
-# mkdir /u01
-
-# mount /dev/sdb1 /u01
-```
-
-也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载
-
-```text
-/dev/sdb1 /u01 ext2 defaults 0 2
-```
 
 
 

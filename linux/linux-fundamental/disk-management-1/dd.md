@@ -6,26 +6,26 @@
 # Dd can read data from standard input or file, convert data according to the specified format, and then output to file, device or standard output.
 
 bs=<bytes> Set ibs (input) and obs (output) to the specified number of bytes.
-Cbs=<bytes> When converting, only the specified number of bytes is converted at a time.
-Conv=<keyword> Specifies how the file is converted.
-Conv = ASCII Converts the EBCDIC code to an ASCIl code.
-Conv = ebcdic Converts the ASCIl code to an EBCDIC code.
-Conv = ibm Converts the ASCIl code to an alternate EBCDIC code.
-Conv = block converts the change bits to fixed characters.
-Conv = ublock converts a fixed bit into a variable bit.
-Conv = ucase converts letters from lowercase to uppercase.
-Conv = lcase converts letters from uppercase to lowercase.
-Conv = notrunc does not truncate the output file.
-Conv = swab exchanges each pair of input bytes.
-Conv = noerror Does not stop processing when an error occurs.
-Conv = sync adjusts the size of each input record to the size of ibs (filled with NUL).
-Count=<block number> Reads only the specified number of blocks.
-Ibs=<bytes> The number of bytes per read.
-If=<file> Read from file.
-Obs=<bytes> The number of bytes per output.
-Of=<file> Output to file.
-Seek=<block number> Skips the specified number of blocks at the beginning of output.
-Skip=<block number> Skips the specified number of blocks at the beginning of reading.
+cbs=<bytes> When converting, only the specified number of bytes is converted at a time.
+conv=<keyword> Specifies how the file is converted.
+conv = ASCII Converts the EBCDIC code to an ASCIl code.
+conv = ebcdic Converts the ASCIl code to an EBCDIC code.
+conv = ibm Converts the ASCIl code to an alternate EBCDIC code.
+conv = block converts the change bits to fixed characters.
+conv = ublock converts a fixed bit into a variable bit.
+conv = ucase converts letters from lowercase to uppercase.
+conv = lcase converts letters from uppercase to lowercase.
+conv = notrunc does not truncate the output file.
+conv = swab exchanges each pair of input bytes.
+conv = noerror Does not stop processing when an error occurs.
+conv = sync adjusts the size of each input record to the size of ibs (filled with NUL).
+count=<block number> Reads only the specified number of blocks.
+ibs=<bytes> The number of bytes per read.
+if=<file> Read from file.
+obs=<bytes> The number of bytes per output.
+of=<file> Output to file.
+seek=<block number> Skips the specified number of blocks at the beginning of output.
+skip=<block number> Skips the specified number of blocks at the beginning of reading.
 --help help.
 --version display version information
 ```
