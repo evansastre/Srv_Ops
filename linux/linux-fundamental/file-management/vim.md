@@ -55,5 +55,7 @@
 #:%s/{old}/{new}/{options} Substitute {new} for {old} in the entire document
 #The g option substitutes all occurrences on a line, otherwise just the first occurrence is changed per line.
 #example    :$s/i/I/g   change all i to I
+n1,n2s/p1/p2/g: line n1 to n2, p1 replaced by p2
+
 ```
 

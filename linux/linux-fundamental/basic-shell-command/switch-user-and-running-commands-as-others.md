@@ -1,4 +1,4 @@
-# Switch User and running commands as others
+# su & sudo -Switch User and running commands as others
 
 ## su
 

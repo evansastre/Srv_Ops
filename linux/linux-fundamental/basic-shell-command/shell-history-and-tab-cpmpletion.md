@@ -1,4 +1,4 @@
-# shell history and Tab cpmpletion
+# history - shell history and Tab cpmpletion
 
 ## Path for store history file
 

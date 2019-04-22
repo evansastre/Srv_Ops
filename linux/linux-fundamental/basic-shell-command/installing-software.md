@@ -1,4 +1,4 @@
-# Installing software
+# yum & rpm - Installing software
 
 ## yum 
 

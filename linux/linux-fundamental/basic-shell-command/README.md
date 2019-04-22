@@ -26,26 +26,7 @@ $ ssh -V
 
 更多示例：[Basic Linux SSH Client Commands](http://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
 
-## sort
 
-以升序对文件内容排序
-
-```text
-$ sort names.txt
-```
-
-以降序对文件内容排序
-
-```text
-$ sort -r names.txt
-```
-
-以第三个字段对/etc/passwd的内容排序
-
-```text
-$ sort -t: -k 3n /etc/passwd | more
-#-u unique
-```
 
 ##  pwd
 

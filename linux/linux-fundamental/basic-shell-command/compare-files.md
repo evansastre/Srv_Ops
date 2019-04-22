@@ -1,4 +1,4 @@
-# Compare Files
+# diff - Compare Files
 
 ```text
 diff  #compare two file 

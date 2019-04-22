@@ -2,8 +2,6 @@
 
 查看某个文件被哪些进程在读写
 
-[lsof](https://www.baidu.com/s?wd=lsof&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd)是什么意思
-
 list open files
 
 查看某个文件被哪些进程在读写

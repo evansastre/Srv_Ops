@@ -1,4 +1,4 @@
-# Environment Variables
+# export - Environment Variables
 
 ```text
 $printenv   

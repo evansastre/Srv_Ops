@@ -1,4 +1,4 @@
-# Process and Job Control
+# job & kill - Process and Job Control
 
 ## Background and Foreground Processes
 
