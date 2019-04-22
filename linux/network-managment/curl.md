@@ -67,5 +67,20 @@ $ curl -d "user=myusername&password=12345" http://www.linuxidc.com/login.cgi
 
 ```
 
+## File upload in POST mode
+
+
+
+```text
+<form method="POST" enctype="multipar/form-data" action="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi">
+<input type=file name=upload>
+<input type=submit name=nick value="go">
+</form>
+Such an HTTP form, we want to use curl to simulate, it is this syntax:
+
+$ curl -F upload=@localfile -F nick=go http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi
+
+```
+
 
 

@@ -26,8 +26,6 @@ $ ssh -V
 
 更多示例：[Basic Linux SSH Client Commands](http://www.thegeekstuff.com/2008/05/5-basic-linux-ssh-client-commands/)
 
-
-
 ##  pwd
 
 输出当前工作目录
@@ -39,8 +37,6 @@ $ ssh -V
 使用`shopt -s cdspell`可以设置自动对cd命令进行拼写检查
 
 更多示例：[6 Awesome Linux cd command Hacks](http://www.thegeekstuff.com/2008/10/6-awesome-linux-cd-command-hacks-productivity-tip3-for-geeks/)
-
-
 
 ## shutdown
 
@@ -68,8 +64,6 @@ $ shutdown -r now
 $ shutdown -Fr now
 ```
 
-
-
 ##  rm
 
 删除文件前先确认
@@ -89,10 +83,6 @@ $ rm -i file*
 ```text
 $ rm -r example
 ```
-
-
-
-
 
 ## passwd
 
@@ -128,25 +118,7 @@ $ mkdir ~/temp
 $ mkdir -p dir1/dir2/dir3/dir4/
 ```
 
-## ifconfig
 
-ifconfig用于查看和配置Linux系统的网络接口
-
-查看所有网络接口及其状态
-
-```text
-$ ifconfig -a
-```
-
-使用up和down命令启动或停止某个接口
-
-```text
-$ ifconfig eth0 up
-
-$ ifconfig eth0 down
-```
-
-更多示例：[Ifconfig: 7 Examples To Configure Network Interface](http://www.thegeekstuff.com/2009/03/ifconfig-7-examples-to-configure-network-interface/)
 
 ## uname
 
@@ -238,18 +210,6 @@ $ mysql -u root -p
 
 你也可以在命令行中输入数据库密码，只需要在-p后面加上密码作为参数，可以直接写在p后面而不用加空格
 
-
-
-## ping
-
-ping一个远程主机，只发5个数据包
-
-```text
-$ ping -c 5 gmail.com
-```
-
-更多示例：[Ping Tutorial: 15 Effective Ping Command Examples](http://www.thegeekstuff.com/2009/11/ping-tutorial-13-effective-ping-command-examples/)
-
 ## date
 
 设置系统日期
@@ -266,19 +226,5 @@ $ ping -c 5 gmail.com
 # hwclock --systohc –utc
 ```
 
-## wget
-
-使用wget从网上下载软件、音乐、视频
-
-```text
-$ wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.2.1.tar.gz
-```
-
-下载文件并以指定的文件名保存文件
-
-```text
-$ wget -O taglist.zip http://www.vim.org/scripts/download_script.php?src_id=7701
-```
-
-更多示例：[The Ultimate Wget Download Guide With 15 Awesome Examples](http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/)
+## 
 
