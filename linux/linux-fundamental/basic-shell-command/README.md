@@ -47,33 +47,6 @@ $ sort -t: -k 3n /etc/passwd | more
 #-u unique
 ```
 
-## export
-
-输出跟字符串oracle匹配的环境变量
-
-```text
-$ export | grep ORCALE
-declare -x ORACLE_BASE="/u01/app/oracle"
-declare -x ORACLE_HOME="/u01/app/oracle/product/10.2.0"
-declare -x ORACLE_SID="med"
-declare -x ORACLE_TERM="xterm"
-```
-
-设置全局环境变量
-
-```text
-$ export ORACLE_HOME=/u01/app/oracle/product/10.2.0
-```
-
-## du 
-
-```text
-du [-b|-k|-m] #show size in b k m 
-du -h -a #show all& human can read
-```
-
-
-
 ##  pwd
 
 输出当前工作目录
@@ -114,25 +87,7 @@ $ shutdown -r now
 $ shutdown -Fr now
 ```
 
-##  
-
-## crontab
-
-查看某个用户的crontab入口
-
-```text
-$ crontab -u john -l
-```
-
-设置一个每十分钟执行一次的计划任务
-
-```text
-*/10 * * * * /home/ramesh/check-disk-space
-```
-
-更多示例：[Linux Crontab: 15 Awesome Cron Job Examples](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)
-
-
+## 
 
 ## free
 
@@ -171,38 +126,7 @@ Total:     7566584    1592148    5974436
 
 
 
-## df
-
-显示文件系统的磁盘使用情况，默认情况下`df -k` 将以字节为单位输出磁盘的使用量
-
-```text
-$ df -k
-Filesystem           1K-blocks      Used Available Use% Mounted on
-/dev/sda1             29530400   3233104  24797232  12% /
-/dev/sda2            120367992  50171596  64082060  44% /home
-```
-
-使用-h选项可以以更符合阅读习惯的方式显示磁盘使用量
-
-```text
-$ df -h
-Filesystem                  Size   Used  Avail Capacity  iused      ifree %iused  Mounted on
-/dev/disk0s2               232Gi   84Gi  148Gi    37% 21998562   38864868   36%   /
-devfs                      187Ki  187Ki    0Bi   100%      648          0  100%   /dev
-map -hosts                   0Bi    0Bi    0Bi   100%        0          0  100%   /net
-map auto_home                0Bi    0Bi    0Bi   100%        0          0  100%   /home
-/dev/disk0s4               466Gi   45Gi  421Gi    10%   112774  440997174    0%   /Volumes/BOOTCAMP
-//app@izenesoft.cn/public  2.7Ti  1.3Ti  1.4Ti    48%        0 18446744073709551615    0%   /Volumes/public
-```
-
-使用-T选项显示文件系统类型
-
-```text
-$ df -T
-Filesystem    Type   1K-blocks      Used Available Use% Mounted on
-/dev/sda1     ext4    29530400   3233120  24797216  12% /
-/dev/sda2     ext4   120367992  50171596  64082060  44% /home
-```
+## 
 
 ## kill
 
@@ -239,26 +163,6 @@ $ rm -r example
 
 
 
-## cat
-
-你可以一次查看多个文件的内容，下面的命令会先打印file1的内容，然后打印file2的内容
-
-```text
-$ cat file1 file2
-```
-
--n命令可以在每行的前面加上行号
-
-```text
-$ cat -n /etc/logrotate.conf
-    1	/var/log/btmp {
-    2	    missingok
-    3	    monthly
-    4	    create 0660 root utmp
-    5	    rotate 1
-    6	}
-```
-
 ## mount
 
 如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上
@@ -275,45 +179,7 @@ $ cat -n /etc/logrotate.conf
 /dev/sdb1 /u01 ext2 defaults 0 2
 ```
 
-## chmod
 
-chmod用于改变文件和目录的权限
-
-给指定文件的属主和属组所有权限\(包括读、写、执行\)
-
-```text
-$ chmod ug+rwx file.txt
-```
-
-删除指定文件的属组的所有权限
-
-```text
-$ chmod g-rwx file.txt
-```
-
-修改目录的权限，以及递归修改目录下面所有文件和子目录的权限
-
-```text
-$ chmod -R ug+rwx file.txt
-```
-
-更多示例：[7 Chmod Command Examples for Beginners](http://www.thegeekstuff.com/2010/06/chmod-command-examples/)
-
-## chown
-
-chown用于改变文件属主和属组
-
-同时将某个文件的属主改为oracle，属组改为db
-
-```text
-$ chown oracle:dba dbora.sh
-```
-
-使用-R选项对目录和目录下的文件进行递归修改
-
-```text
-$ chown -R oracle:dba /home/oracle
-```
 
 ## passwd
 
@@ -441,67 +307,6 @@ crontab (5)          - tables for driving cron
 $ man 5 crontab
 ```
 
-## tail
-
-tail命令默认显示文件最后的10行文本
-
-```text
-$ tail filename.txt
-```
-
-你可以使用-n选项指定要显示的行数
-
-```text
-$ tail -n N filename.txt
-```
-
-你也可以使用-f选项进行实时查看，这个命令执行后会等待，如果有新行添加到文件尾部，它会继续输出新的行，在查看日志时这个选项会非常有用。你可以通过CTRL-C终止命令的执行
-
-```text
-$ tail -f log-file
-```
-
-更多示例：[3 Methods To View tail -f output of Multiple Log Files in One Terminal](http://www.thegeekstuff.com/2009/09/multitail-to-view-tail-f-output-of-multiple-log-files-in-one-terminal/)
-
-## less
-
-这个命名可以在不加载整个文件的前提下显示文件内容，在查看大型日志文件的时候这个命令会非常有用
-
-```text
-$ less huge-log-file.log
-```
-
-当你用less命令打开某个文件时，下面两个按键会给你带来很多帮助，他们用于向前和向后滚屏
-
-```text
-CTRL+F – forward one window
-CTRL+B – backward one window
-```
-
-更多示例：[Unix Less Command: 10 Tips for Effective Navigation](http://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/)
-
-## su
-
-su命令用于切换用户账号，超级用户使用这个命令可以切换到任何其他用户而不用输入密码
-
-```text
-$ su - USERNAME
-```
-
-用另外一个用户名执行一个命令下面的示例中用户john使用raj用户名执行ls命令，执行完后返回john的账号
-
-```text
-[john@dev-server]$ su - raj -c 'ls'
-
-[john@dev-server]$
-```
-
-用指定用户登录，并且使用指定的shell程序，而不用默认的
-
-```text
-$ su -s 'SHELLNAME' USERNAME
-```
-
 ## mysql
 
 mysql可能是Linux上使用最广泛的数据库，即使你没有在你的服务器上安装mysql，你也可以使用mysql客户端连接到远程的mysql服务器
@@ -520,47 +325,7 @@ $ mysql -u root -p
 
 你也可以在命令行中输入数据库密码，只需要在-p后面加上密码作为参数，可以直接写在p后面而不用加空格
 
-##  yum
 
-使用yum安装apache
-
-```text
-$ yum install httpd
-```
-
-更新apache
-
-```text
-$ yum update httpd
-```
-
-卸载/删除apache
-
-```text
-$ yum remove httpd
-```
-
-## rpm
-
-使用rpm安装apache
-
-```text
-# rpm -ivh httpd-2.2.3-22.0.1.el5.i386.rpm
-```
-
-更新apache
-
-```text
-# rpm -uvh httpd-2.2.3-22.0.1.el5.i386.rpm
-```
-
-卸载/删除apache
-
-```text
-# rpm -ev httpd
-```
-
-更多示例：[RPM Command: 15 Examples to Install, Uninstall, Upgrade, Query RPM Packages](http://www.thegeekstuff.com/2010/07/rpm-command-examples/)
 
 ## ping
 
@@ -603,32 +368,4 @@ $ wget -O taglist.zip http://www.vim.org/scripts/download_script.php?src_id=7701
 ```
 
 更多示例：[The Ultimate Wget Download Guide With 15 Awesome Examples](http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

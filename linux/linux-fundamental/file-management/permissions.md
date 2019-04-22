@@ -1,4 +1,28 @@
-# Permissions
+# chmod-Permissions
+
+chmod用于改变文件和目录的权限
+
+给指定文件的属主和属组所有权限\(包括读、写、执行\)
+
+```text
+$ chmod ug+rwx file.txt
+```
+
+删除指定文件的属组的所有权限
+
+```text
+$ chmod g-rwx file.txt
+```
+
+修改目录的权限，以及递归修改目录下面所有文件和子目录的权限
+
+```text
+$ chmod -R ug+rwx file.txt
+```
+
+更多示例：[7 Chmod Command Examples for Beginners](http://www.thegeekstuff.com/2010/06/chmod-command-examples/)
+
+
 
 ```bash
 # Permission  File                       | Directory
@@ -20,7 +44,7 @@ id -Gn
 
 ```
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../../.gitbook/assets/image%20%282%29.png)
 
 ```text
 #change permission

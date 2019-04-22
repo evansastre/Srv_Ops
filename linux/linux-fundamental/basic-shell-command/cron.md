@@ -63,6 +63,20 @@ crontab -r    #Remove all of your cron jobs.
 
 
 
+查看某个用户的crontab入口
+
+```text
+$ crontab -u john -l
+```
+
+设置一个每十分钟执行一次的计划任务
+
+```text
+*/10 * * * * /home/ramesh/check-disk-space
+```
+
+更多示例：[Linux Crontab: 15 Awesome Cron Job Examples](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)
+
 
 
 
