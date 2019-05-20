@@ -251,8 +251,5 @@ route add -host 192.168.2.211 dev lo:0
  `因为我们使用了RR静态调度方法,所以这node3和node4的请求是一人一个。`  
 ![](//upload-images.jianshu.io/upload_images/3125535-9b15f71b5b07602b.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)Flash  
   
-作者：酱油菠菜  
-链接：https://www.jianshu.com/p/8a61de3f8be9  
-來源：简书  
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
 
