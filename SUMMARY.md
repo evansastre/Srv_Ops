@@ -207,4 +207,7 @@
 ## DevOps
 
 * [CI/CD](devops/ci-cd.md)
+* [JAVA](devops/java/README.md)
+  * [spock](devops/java/spock.md)
+  * [Maven](devops/java/maven.md)
 
